@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>存储卡亚克力挂件模板工具</title>
-    <style>
+
+  <style id="template-styles">
+
 /*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
 @layer theme {
 
@@ -71,9 +73,6 @@
 
   a {
     color: inherit;
-    -webkit-text-decoration: inherit;
-    -webkit-text-decoration: inherit;
-    -webkit-text-decoration: inherit;
     -webkit-text-decoration: inherit;
     text-decoration: inherit
   }
@@ -321,35 +320,15 @@
   }
 }
 
-:root {
-  --ink: #20252c;
-  --muted: #6d7580;
-  --paper: #f5f1e9;
-  --panel: #fffdf8;
-  --line: #ded8cd;
-  --accent: #ef4f3c
-}
-
 * {
   box-sizing: border-box
 }
 
 body {
-  color: var(--ink);
-  background: #ebe6dc;
-  margin: 0;
   font-family: Inter, Noto Sans SC, Microsoft YaHei, system-ui, sans-serif
 }
 
-.app-shell {
-  background: radial-gradient(circle at 82% 10%, #ef4f3c1c, #0000 28%), linear-gradient(135deg, #f4f0e8, #e6dfd3);
-  min-height: 100vh
-}
-
 .topbar {
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  background: #fffdf8b8;
   border-bottom: 1px solid #50463724;
   justify-content: space-between;
   align-items: center;
@@ -382,36 +361,19 @@ body {
 }
 
 .workspace {
-  grid-template-columns: 380px 1fr;
-  gap: 24px;
-  max-width: 1420px;
   margin: auto;
-  padding: 28px;
   display: grid
-}
-
-.panel,
-.preview-area {
-  border: 1px solid var(--line);
-  background: #fffdf8eb;
-  border-radius: 22px;
-  box-shadow: 0 20px 60px #372f2317
 }
 
 .controls {
   max-height: calc(100vh - 160px);
-  padding: 18px;
   overflow: auto
 }
 
 .tabs {
   z-index: 2;
-  background: #e9e3d8;
-  border-radius: 14px;
   grid-template-columns: 1fr 1fr;
-  padding: 4px;
   display: grid;
-  position: sticky;
   top: 0
 }
 
@@ -420,15 +382,8 @@ body {
   cursor: pointer;
   background: 0 0;
   border: 0;
-  border-radius: 10px;
   padding: 11px;
   font-weight: 750
-}
-
-.tabs button.active {
-  color: var(--ink);
-  background: #fff;
-  box-shadow: 0 3px 12px #28231c1f
 }
 
 section section {
@@ -466,7 +421,6 @@ section section h2 {
 
 .upload {
   cursor: pointer;
-  background: #faf7f0;
   border: 1px dashed #aaa194;
   border-radius: 11px;
   justify-content: center;
@@ -508,7 +462,6 @@ button {
 .ghost {
   border: 1px solid var(--line);
   cursor: pointer;
-  background: #fff;
   border-radius: 10px;
   width: 100%;
   padding: 10px;
@@ -546,8 +499,7 @@ button {
 }
 
 .preview-area {
-  min-width: 0;
-  padding: 24px
+  min-width: 0
 }
 
 .preview-head {
@@ -559,7 +511,6 @@ button {
 }
 
 .live-dot {
-  background: #2bb673;
   border-radius: 50%;
   width: 7px;
   height: 7px;
@@ -569,29 +520,18 @@ button {
 }
 
 .canvas-stage {
-  background-color: #d8d1c6;
-  background-image: linear-gradient(45deg, #c9c1b5 25%, #0000 25%), linear-gradient(-45deg, #c9c1b5 25%, #0000 25%), linear-gradient(45deg, #0000 75%, #c9c1b5 75%), linear-gradient(-45deg, #0000 75%, #c9c1b5 75%);
   background-position: 0 0, 0 10px, 10px -10px, -10px 0;
-  background-size: 20px 20px;
-  border-radius: 18px;
-  justify-content: center;
-  align-items: center;
-  height: min(68vh, 730px);
-  display: flex;
-  overflow: hidden
+  background-size: 20px 20px
 }
 
 .canvas-stage canvas {
-  filter: drop-shadow(0 18px 20px #201b1538);
   width: auto;
   max-width: 90%;
   height: 92%
 }
 
 .dimensions {
-  color: #7e766b;
   justify-content: space-between;
-  padding: 7px 9% 0;
   font: 600 10px ui-monospace, monospace;
   display: flex
 }
@@ -604,8 +544,6 @@ button {
 }
 
 .exports button {
-  background: var(--ink);
-  color: #fff;
   cursor: pointer;
   border: 0;
   border-radius: 11px;
@@ -614,14 +552,8 @@ button {
   font-weight: 750
 }
 
-.exports button:hover {
-  transform: translateY(-1px)
-}
-
 .exports .secondary {
-  color: var(--ink);
-  border: 1px solid var(--line);
-  background: #fff
+  border: 1px solid var(--line)
 }
 
 .footnote {
@@ -715,18 +647,11 @@ button {
 }
 
 /* Flat page layout */
-body {
-  background: #f7f5f0
-}
 
 .topbar {
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none
-}
-
-.workspace {
-  gap: 0
 }
 
 .panel,
@@ -741,13 +666,7 @@ body {
   padding: 0 24px 0 0
 }
 
-.preview-area {
-  padding: 0 0 0 24px;
-  border-left: 1px solid var(--line)
-}
-
 .tabs {
-  background: #f7f5f0;
   border-radius: 0;
   padding: 0;
   border-bottom: 1px solid var(--line)
@@ -760,8 +679,7 @@ body {
 
 .tabs button.active {
   background: transparent;
-  box-shadow: none;
-  border-bottom-color: var(--ink)
+  box-shadow: none
 }
 
 .canvas-stage {
@@ -784,27 +702,14 @@ body {
   .controls {
     padding: 0 0 24px
   }
-
-  .preview-area {
-    padding: 24px 0 0;
-    border-left: 0;
-    border-top: 1px solid var(--line)
-  }
 }
 
-</style>
-    <style id="flat-workspace-v2">
+
+
 :root {
-  --bg: #f4f7fb;
-  --panel: #fff;
-  --ink: #1f2937;
-  --muted: #6b7280;
-  --line: #d9e1ea;
-  --accent: #315b70
-}
+  --bg: #f4f7fb}
 
 body {
-  background: #f4f7fb;
   color: #1f2937
 }
 
@@ -859,8 +764,8 @@ input[type=checkbox] {
   accent-color: #315b70
 }
 
-</style>
-    <style>
+
+
 :root {
   --ink: #1f2937;
   --muted: #6b7280;
@@ -873,10 +778,6 @@ input[type=checkbox] {
 body,
 .app-shell {
   background: #f4f7fb !important
-}
-
-.app-shell {
-  min-height: 100vh
 }
 
 .app-shell>.topbar {
@@ -940,16 +841,11 @@ body,
 
 .canvas-stage {
   background-color: #e2e8f0;
-  background-image: linear-gradient(45deg, #d2dae5 25%, transparent 25%), linear-gradient(-45deg, #d2dae5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d2dae5 75%), linear-gradient(-45deg, transparent 75%, #d2dae5 75%);
-  height: min(68vh, 730px)
+  background-image: linear-gradient(45deg, #d2dae5 25%, transparent 25%), linear-gradient(-45deg, #d2dae5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d2dae5 75%), linear-gradient(-45deg, transparent 75%, #d2dae5 75%)
 }
 
 .live-dot {
   background: #315b70
-}
-
-.dimensions {
-  color: #6b7280
 }
 
 .exports button:hover {
@@ -994,231 +890,11 @@ body,
   }
 }
 
-</style>
-    <style id="equal-panels-v4-head">
+
+
 html,
 body {
-  height: 100% !important;
-  overflow: hidden !important
-}
-
-.app,
-.workspace,
-body>main.workspace {
-  height: 100vh !important;
-  min-height: 0 !important;
-  align-items: stretch !important;
-  grid-template-columns: 380px minmax(0, 1fr) !important;
-  padding: 20px 24px !important
-}
-
-.app>aside,
-body>main.workspace>aside,
-.workspace>.controls,
-body>main.workspace>section:first-child {
-  height: 100% !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  contain: none !important;
-  padding: 0 24px 0 0 !important;
-  scrollbar-width: thin;
-  overscroll-behavior: contain
-}
-
-.app>main,
-.workspace>.preview-area {
-  height: 100% !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  overflow: hidden !important;
-  padding: 0 0 0 24px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important
-}
-
-.previewViewport {
-  width: 100%;
-  min-height: 0;
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden
-}
-
-.canvas-stage {
-  height: auto !important;
-  flex: 1 1 0 !important;
-  min-height: 0 !important;
-  width: 100% !important;
-  display: flex !important;
-  overflow: hidden !important
-}
-
-.canvas-stage>.previewViewport {
-  height: 100%
-}
-
-.app canvas,
-.workspace canvas {
-  width: var(--preview-w, auto) !important;
-  height: auto !important;
-  max-width: none !important;
-  max-height: none !important;
-  flex: 0 0 auto !important
-}
-
-.previewZoom,
-.previewTools,
-.dimensions,
-#status,
-.exports,
-.footnote {
-  flex-shrink: 0 !important
-}
-
-.previewTools {
-  position: relative !important;
-  min-height: 30px !important;
-  margin: 0 !important;
-  justify-content: flex-end !important
-}
-
-.previewTools #sizeBtn {
-  position: static !important;
-  margin-left: auto !important;
-  align-self: flex-end !important
-}
-
-.previewZoom {
-  min-height: 30px;
-  justify-content: center;
-  width: 100%
-}
-
-.previewZoom button {
-  white-space: nowrap
-}
-
-.workspace .exports {
-  margin-top: 0 !important;
-  gap: 6px !important
-}
-
-.workspace .exports button {
-  padding: 9px 7px !important
-}
-
-.workspace .footnote {
-  font-size: 10px !important;
-  line-height: 1.45 !important
-}
-
-.dimensions {
-  padding: 0 !important
-}
-
-.group>summary {
-  display: list-item !important;
-  list-style: disclosure-closed !important
-}
-
-.group[open]>summary {
-  list-style: disclosure-open !important
-}
-
-#generalContent {
-  display: block !important
-}
-
-.tabs {
-  flex-shrink: 0
-}
-
-@media(max-width:900px) {
-
-  .app,
-  .workspace,
-  body>main.workspace {
-    grid-template-columns: minmax(220px, 38%) minmax(0, 1fr) !important;
-    padding: 14px !important
-  }
-
-  .app>aside,
-  body>main.workspace>aside,
-  .workspace>.controls {
-    padding: 0 14px 0 0 !important
-  }
-
-  .app>main,
-  .workspace>.preview-area {
-    border-top: 0 !important;
-    border-left: 1px solid #d9e1ea !important;
-    padding: 0 0 0 14px !important
-  }
-
-  .previewZoom input[type=range] {
-    width: 75px
-  }
-
-  .workspace .exports {
-    grid-template-columns: 1fr 1fr !important
-  }
-}
-
-@media(max-width:540px) {
-
-  .app,
-  .workspace,
-  body>main.workspace {
-    grid-template-columns: minmax(160px, 46%) minmax(0, 1fr) !important;
-    padding: 8px !important
-  }
-
-  .app>aside,
-  body>main.workspace>aside,
-  .workspace>.controls {
-    padding-right: 8px !important
-  }
-
-  .app>main,
-  .workspace>.preview-area {
-    padding-left: 8px !important
-  }
-
-  .previewZoom {
-    gap: 5px
-  }
-
-  .previewZoom input[type=range] {
-    width: 60px
-  }
-
-  .previewZoom input[type=number] {
-    width: 52px
-  }
-
-  .previewTools label {
-    font-size: 10px
-  }
-
-  .workspace .exports button {
-    font-size: 10px !important
-  }
-}
-
-</style>
-  </head>
-  <body>
-    <style id="whole-page-v3">
-html,
-body {
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: visible !important
+  min-height: 0 !important
 }
 
 body {
@@ -1255,30 +931,17 @@ body>main.workspace,
 body>main.workspace>aside,
 .workspace>.controls,
 body>main.workspace>section:first-child {
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
   overflow: visible !important;
-  contain: none !important;
   background: transparent !important;
-  border: 0 !important;
-  padding: 0 24px 0 0 !important
+  border: 0 !important
 }
 
 .app>main,
 .workspace>.preview-area {
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  overflow: visible !important;
   border: 0 !important;
   border-left: 1px solid #d9e1ea !important;
-  padding: 0 0 0 24px !important;
   background: transparent !important;
-  display: flex !important;
-  flex-direction: column !important;
   align-items: center !important;
-  gap: 14px !important;
   position: static !important
 }
 
@@ -1392,13 +1055,11 @@ body>main.workspace>section:first-child {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
   flex-wrap: wrap
 }
 
 .previewZoom {
-  display: flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
@@ -1423,12 +1084,7 @@ body>main.workspace>section:first-child {
 }
 
 .canvas-stage {
-  width: 100%;
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: visible !important;
   background: transparent !important;
-  display: flex;
   align-items: center;
   justify-content: center;
   border: 0;
@@ -1437,9 +1093,6 @@ body>main.workspace>section:first-child {
 
 .app canvas,
 .workspace canvas {
-  width: var(--preview-w, 440px) !important;
-  max-width: 100% !important;
-  height: auto !important;
   flex-shrink: 0;
   box-shadow: none !important;
   filter: none !important;
@@ -1520,17 +1173,8 @@ button {
     padding: 18px !important
   }
 
-  .app>aside,
-  body>main.workspace>aside,
-  .workspace>.controls {
-    padding: 0 0 24px !important
-  }
-
   .app>main,
   .workspace>.preview-area {
-    border-left: 0 !important;
-    border-top: 1px solid #d9e1ea !important;
-    padding: 24px 0 0 !important;
     order: 0 !important;
     width: 100%
   }
@@ -1541,13 +1185,759 @@ button {
   }
 }
 
+
+
+html,
+body {
+  height: 100% !important;
+  overflow: hidden !important
+}
+
+.app,
+.workspace,
+body>main.workspace {
+  height: 100vh !important;
+  min-height: 0 !important;
+  align-items: stretch !important;
+  grid-template-columns: 380px minmax(0, 1fr) !important;
+  padding: 20px 24px !important
+}
+
+.app>aside,
+body>main.workspace>aside,
+.workspace>.controls,
+body>main.workspace>section:first-child {
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  contain: none !important;
+  padding: 0 24px 0 0 !important;
+  scrollbar-width: thin;
+  overscroll-behavior: contain
+}
+
+.app>main,
+.workspace>.preview-area {
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+  padding: 0 0 0 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important
+}
+
+.previewViewport {
+  width: 100%;
+  min-height: 0;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden
+}
+
+.canvas-stage {
+  height: auto !important;
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  width: 100% !important
+}
+
+.canvas-stage>.previewViewport {
+  height: 100%
+}
+
+.app canvas,
+.workspace canvas {
+  width: var(--preview-w, auto) !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  flex: 0 0 auto !important
+}
+
+.previewZoom,
+.previewTools,
+.dimensions,
+#status,
+.exports,
+.footnote {
+  flex-shrink: 0 !important
+}
+
+.previewTools {
+  position: relative !important;
+  min-height: 30px !important;
+  margin: 0 !important;
+  justify-content: flex-end !important
+}
+
+.previewTools #sizeBtn {
+  position: static !important;
+  margin-left: auto !important
+}
+
+.previewZoom button {
+  white-space: nowrap
+}
+
+.workspace .exports {
+  margin-top: 0 !important;
+  gap: 6px !important
+}
+
+.workspace .exports button {
+  padding: 9px 7px !important
+}
+
+.workspace .footnote {
+  font-size: 10px !important;
+  line-height: 1.45 !important
+}
+
+.dimensions {
+  padding: 0 !important
+}
+
+.group>summary {
+  display: list-item !important;
+  list-style: disclosure-closed !important
+}
+
+.group[open]>summary {
+  list-style: disclosure-open !important
+}
+
+#generalContent {
+  display: block !important
+}
+
+.tabs {
+  flex-shrink: 0
+}
+
+@media(max-width:900px) {
+
+  .app,
+  .workspace,
+  body>main.workspace {
+    grid-template-columns: minmax(220px, 38%) minmax(0, 1fr) !important;
+    padding: 14px !important
+  }
+
+  .app>aside,
+  body>main.workspace>aside,
+  .workspace>.controls {
+    padding: 0 14px 0 0 !important
+  }
+
+  .app>main,
+  .workspace>.preview-area {
+    border-top: 0 !important;
+    border-left: 1px solid #d9e1ea !important;
+    padding: 0 0 0 14px !important
+  }
+
+  .previewZoom input[type=range] {
+    width: 75px
+  }
+
+  .workspace .exports {
+    grid-template-columns: 1fr 1fr !important
+  }
+}
+
+@media(max-width:540px) {
+
+  .app,
+  .workspace,
+  body>main.workspace {
+    grid-template-columns: minmax(160px, 46%) minmax(0, 1fr) !important;
+    padding: 8px !important
+  }
+
+  .app>aside,
+  body>main.workspace>aside,
+  .workspace>.controls {
+    padding-right: 8px !important
+  }
+
+  .app>main,
+  .workspace>.preview-area {
+    padding-left: 8px !important
+  }
+
+  .previewZoom {
+    gap: 5px
+  }
+
+  .previewZoom input[type=range] {
+    width: 60px
+  }
+
+  .previewZoom input[type=number] {
+    width: 52px
+  }
+
+  .previewTools label {
+    font-size: 10px
+  }
+
+  .workspace .exports button {
+    font-size: 10px !important
+  }
+}
+
+
+
+.group>summary,
+.whiteOptions>summary,
+details>summary {
+  list-style: none !important;
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer !important
+}
+
+.group>summary::-webkit-details-marker,
+details>summary::-webkit-details-marker {
+  display: none !important
+}
+
+.group>summary::before,
+details>summary::before {
+  content: "▶";
+  font-size: 10px;
+  line-height: 1;
+  display: inline-block;
+  color: #315b70;
+  flex: 0 0 auto;
+  transform: rotate(0deg)
+}
+
+.group[open]>summary::before,
+details[open]>summary::before {
+  transform: rotate(90deg)
+}
+
+.previewZoom {
+  order: -30 !important;
+  width: 100%;
+  margin: 0 !important;
+  min-height: 32px !important
+}
+
+.previewTools {
+  order: -20 !important
+}
+
+.previewTopline {
+  width: 100%;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  order: -40 !important
+}
+
+.previewTopline .dimensions {
+  font-size: 12px;
+  text-align: left;
+  margin: 0 !important
+}
+
+.previewZoom {
+  justify-content: center
+}
+
+.previewTopline .dimensions {
+  order: -40
+}
+
+.previewTopline .previewZoom {
+  order: 0 !important;
+  width: auto;
+  flex: 1
+}
+
+.collapseHint {
+  padding: 0 8px 0 0 !important;
+  background: transparent !important;
+  border: 0;
+  color: #315b70;
+  font-size: 10px !important;
+  cursor: pointer
+}
+
+.storageCollapsed>:not(h2) {
+  display: none !important
+}
+
+.previewViewport {
+  order: 0
+}
+
+.preview-head {
+  flex-shrink: 0
+}
+
+.dimensions {
+  flex-shrink: 0
+}
+
+
+
+.previewTools,
+.previewTopline,
+.dimensionsTop {
+  order: -50 !important;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+  flex-shrink: 0;
+  min-height: 28px
+}
+
+.previewTools #sizeBtn {
+  margin: 0 !important;
+  align-self: flex-start !important
+}
+
+.panViewport {
+  width: 100%;
+  min-height: 0;
+  overflow: auto !important;
+  position: relative;
+  scrollbar-width: thin;
+  overscroll-behavior: contain;
+  touch-action: none;
+  cursor: grab
+}
+
+.panSurface {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative
+}
+
+.panViewport.dragging {
+  cursor: grabbing
+}
+
+.panSurface canvas {
+  max-width: none !important;
+  max-height: none !important;
+  flex: none !important;
+  touch-action: none
+}
+
+.canvas-stage {
+  overflow: visible !important;
+  display: block !important
+}
+
+.textStyles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px 0
+}
+
+.textStyles label {
+  display: flex !important;
+  align-items: center;
+  gap: 5px;
+  margin: 0 !important;
+  font-size: 12px
+}
+
+.previewZoom {
+  display: none !important
+}
+
+.dimensionsTop {
+  font-size: 12px;
+  color: #6b7280
+}
+
+.preview-head {
+  order: -40 !important
+}
+
+
+
+.storageExportTarget .exports {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px
+}
+
+.storageExportTarget .exports button {
+  font-size: 12px
+}
+
+.storageWhiteOptions {
+  margin: 12px 0;
+  border: 1px solid #d9e1ea;
+  padding: 10px
+}
+
+.storageExportSettings>.ghost {
+  width: 100%;
+  background: #315b70;
+  color: white
+}
+
+
+
+.previewTools,
+.previewTopline,
+.dimensions,
+.dimensionsTop {
+  display: none !important
+}
+
+.richSelectionToolbar span {
+  font-size: 11px;
+  color: #6b7280
+}
+
+.richSelectionToolbar button {
+  border: 1px solid #d9e1ea;
+  background: #fff;
+  color: #315b70;
+  font-size: 13px;
+  cursor: pointer
+}
+
+.richSelectionToolbar button:hover {
+  background: #dbe8f1
+}
+
+
+
+.textStyles,
+.hint,
+.help,
+.disabledHint,
+.footnote,
+.rangeHint {
+  display: none !important
+}
+
+.richSelectionToolbar {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start;
+  margin: 7px 0 12px
+}
+
+.richSelectionToolbar span {
+  display: none !important
+}
+
+.richSelectionToolbar button {
+  height: 28px !important;
+  padding: 3px !important
+}
+
+.projectModal {
+  position: fixed;
+  inset: 0;
+  background: #24374666;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 18px;
+  overflow: auto
+}
+
+.projectDialog {
+  width: min(520px, 100%);
+  background: #f4f7fb;
+  border: 1px solid #becbd5;
+  padding: 18px;
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+  color: #1f2937
+}
+
+.projectDialogHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d9e1ea;
+  padding-bottom: 12px;
+  margin-bottom: 16px
+}
+
+.projectDialogHead strong {
+  font-size: 17px
+}
+
+.projectClose {
+  background: transparent !important;
+  border: 0;
+  font-size: 24px !important;
+  padding: 0 5px !important
+}
+
+.projectFileActions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px
+}
+
+.projectFileActions button {
+  flex: 1;
+  border: 1px solid #d9e1ea;
+  padding: 10px;
+  background: white;
+  color: #315b70;
+  cursor: pointer
+}
+
+.projectExports>details.group {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important
+}
+
+.projectExports>details.group>summary {
+  display: none !important
+}
+
+.projectExports .storageExportSettings {
+  border: 0;
+  padding: 0;
+  margin: 0
+}
+
+.projectExports h2 {
+  font-size: 14px
+}
+
+.projectExports .richSelectionToolbar {
+  display: none !important
+}
+
+.projectExports button {
+  cursor: pointer
+}
+
+.projectModal[hidden] {
+  display: none !important
+}
+
+.projectDialog .groupBody {
+  padding: 0
+}
+
+.projectDialog .hint,
+.projectDialog .help {
+  display: none !important
+}
+
+
+
+.workspace>.preview-area>.preview-head {
+  display: none !important
+}
+
+
+
+.controls .tabs,
+.app>aside>.tabs {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px !important;
+  background: transparent !important;
+  padding: 0 0 14px !important;
+  margin: 0 !important;
+  border-bottom: 0 !important
+}
+
+.controls .tabs button,
+.app>aside>.tabs button {
+  background: #243746 !important;
+  color: #cbd5e1 !important;
+  border: 0 !important;
+  border-bottom: 3px solid transparent !important;
+  padding: 10px 12px !important
+}
+
+.controls .tabs button.active,
+.app>aside>.tabs button.active {
+  background: #315b70 !important;
+  color: #fff !important;
+  border-bottom-color: #a4c6d8 !important
+}
+
+.app>aside>#generalSection {
+  border-top: 0 !important;
+  padding-top: 0 !important
+}
+
+.app>aside>#frontPanel>.group:first-child,
+.app>aside>#backPanel>.group:first-child,
+body>main.workspace>aside.controls>.group:first-child {
+  border-top: 0 !important;
+  padding-top: 0 !important
+}
+
+.controls>section {
+  border-bottom: 0 !important;
+  border-top: 1px solid #d9e1ea !important;
+  padding: 16px 0 !important;
+  margin: 0 !important
+}
+
+.controls>.tabs+section {
+  border-top: 0 !important;
+  padding-top: 0 !important
+}
+
+
+
+.fiveButtons {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+  margin: 12px 0
+}
+
+.fiveButtons button {
+  font-size: 10px !important;
+  padding: 8px 2px !important;
+  white-space: nowrap;
+  min-width: 0;
+  font-weight: 600
+}
+
+.compactColorAlpha {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  margin: 10px 0;
+  min-height: 34px
+}
+
+.compactCaption {
+  font-size: 12px;
+  color: #526879;
+  flex: 0 0 30px
+}
+
+.compactColorAlpha input[type=color] {
+  width: 38px !important;
+  min-width: 38px;
+  height: 30px !important;
+  flex: 0 0 38px;
+  padding: 2px
+}
+
+.compactColorAlpha input[type=range] {
+  flex: 1 !important;
+  width: 0 !important;
+  min-width: 50px;
+  padding: 0;
+  margin: 0
+}
+
+.compactColorAlpha input:not([type=color]):not([type=range]) {
+  width: 58px !important;
+  flex: 0 0 58px !important;
+  padding: 5px !important;
+  text-align: center
+}
+
+.compactColorAlpha[hidden] {
+  display: none !important
+}
+
+.richSelectionToolbar {
+  width: 100%;
+  gap: 5px !important;
+  align-items: center
+}
+
+.richSelectionToolbar select {
+  flex: 1 !important;
+  width: auto !important;
+  min-width: 100px !important;
+  max-width: 220px;
+  padding: 5px !important;
+  height: 29px;
+  font-size: 12px
+}
+
+.richSelectionToolbar button {
+  flex: 0 0 27px !important;
+  width: 27px !important
+}
+
+.fontSizeReset {
+  flex: 0 0 auto !important;
+  padding: 6px 8px !important;
+  font-size: 11px !important;
+  white-space: nowrap;
+  margin: 0 !important
+}
+
+.fontSizeRow {
+  display: flex;
+  align-items: center;
+  gap: 7px
+}
+
+.fontSizeRow>input {
+  flex: 1;
+  width: 0 !important
+}
+
+.rangeHeader .fontSizeReset {
+  width: auto
+}
+
+.rangeHeader {
+  gap: 6px
+}
+
+.mainBackgroundComponent input:disabled {
+  opacity: .4
+}
+
+label[hidden],
+.rangeControl[hidden],
+.rangePair[hidden],
+.range[hidden] {
+  display: none !important
+}
+
+
 </style>
+</head>
+  <body>
+    
     <div id="root">
     </div>
     <script>
 const TEMPLATE_KEY = "storage";
 const richTextState = {};
-
 function richEntry(key, text) {
   let entry = richTextState[key];
   if (!entry) return richTextState[key] = {
@@ -1557,30 +1947,20 @@ function richEntry(key, text) {
     }, () => ({}))
   };
   if (entry.text !== text) {
-    let a = entry.text,
-      b = text,
-      p = 0;
+    let a = entry.text, b = text, p = 0;
     while (p < Math.min(a.length, b.length) && a[p] === b[p]) p++;
     let q = 0;
     while (q < Math.min(a.length - p, b.length - p) && a[a.length - 1 - q] === b[b.length - 1 - q]) q++;
-    const inherited = entry.styles[Math.max(0, p - 1)] || {};
+    const inherited = entry.styles[Math.max(0, p - 1)] || ({});
     entry.styles = [...entry.styles.slice(0, p), ...Array.from({
       length: b.length - p - q
     }, () => ({
       ...inherited
     })), ...entry.styles.slice(a.length - q)];
-    entry.text = b
+    entry.text = b;
   }
-  return entry
+  return entry;
 }
-
-function richStyle(key, text, index, defaults) {
-  return {
-    ...defaults,
-    ...(richEntry(key, text).styles[index] || {})
-  }
-}
-
 function richWidth(c, key, text, size, font, defaults, start = 0, full = text) {
   const entry = richEntry(key, full);
   let w = 0;
@@ -1589,121 +1969,68 @@ function richWidth(c, key, text, size, font, defaults, start = 0, full = text) {
       ...defaults,
       ...entry.styles[start + j]
     };
-    c.font = `${st.bold?700:400} ${size}px ${font}`;
-    w += c.measureText(text[j]).width
+    c.font = `${st.bold ? 700 : 400} ${size}px ${font}`;
+    w += c.measureText(text[j]).width;
   }
-  return w
+  return w;
 }
-
-function richDraw(c, key, text, x, y, size, font, color, defaults = {}, align = 'left', baseline =
-  'alphabetic', maxWidth = Infinity, start = 0, full = text) {
+function richDraw(c, key, text, x, y, size, font, color, defaults = {}, align = 'left', baseline = 'alphabetic', maxWidth = Infinity, start = 0, full = text) {
   c.save();
   c.globalAlpha *= defaults.alpha ?? 1;
   c.fillStyle = color;
   c.strokeStyle = color;
   c.textAlign = 'left';
   c.textBaseline = baseline;
-  const width = richWidth(c, key, text, size, font, defaults, start, full),
-    ratio = Math.min(1, maxWidth / Math.max(.0001, width));
+  const width = richWidth(c, key, text, size, font, defaults, start, full), ratio = Math.min(1, maxWidth / Math.max(.0001, width));
   let left = align === 'center' ? x - width * ratio / 2 : align === 'right' ? x - width * ratio : x;
   c.translate(left, y);
   c.scale(ratio, 1);
-  let xx = 0,
-    entry = richEntry(key, full);
+  let xx = 0, entry = richEntry(key, full);
   for (let j = 0; j < text.length; j++) {
     const st = {
       ...defaults,
       ...entry.styles[start + j]
     };
-    c.font = `${st.bold?700:400} ${size}px ${font}`;
+    c.font = `${st.bold ? 700 : 400} ${size}px ${font}`;
     const w = c.measureText(text[j]).width;
     c.fillText(text[j], xx, 0);
     c.lineWidth = Math.max(.08, size * .055);
-    const under = baseline === 'middle' ? size * .44 : baseline === 'top' ? size * .92 : size * .12,
-      strike = baseline === 'middle' ? 0 : baseline === 'top' ? size * .45 : -size * .3;
-    for (const [on, yy] of [
-        [st.underline, under],
-        [st.strike, strike]
-      ])
-      if (on) {
-        c.beginPath();
-        c.moveTo(xx, yy);
-        c.lineTo(xx + w, yy);
-        c.stroke()
-      } xx += w
-  }
-  c.restore()
-}
-
-function richWrap(c, key, text, width, size, font, defaults) {
-  let rows = [],
-    line = '',
-    start = 0,
-    offset = 0;
-  for (const ch of text) {
-    if (ch === '\n') {
-      rows.push({
-        text: line,
-        start
-      });
-      line = '';
-      start = offset + 1;
-      offset++;
-      continue
+    const under = baseline === 'middle' ? size * .44 : baseline === 'top' ? size * .92 : size * .12, strike = baseline === 'middle' ? 0 : baseline === 'top' ? size * .45 : -size * .3;
+    for (const [on, yy] of [[st.underline, under], [st.strike, strike]]) if (on) {
+      c.beginPath();
+      c.moveTo(xx, yy);
+      c.lineTo(xx + w, yy);
+      c.stroke();
     }
-    if (line && richWidth(c, key, line + ch, size, font, defaults, start, text) > width) {
-      rows.push({
-        text: line,
-        start
-      });
-      line = ch;
-      start = offset
-    } else line += ch;
-    offset += ch.length
+    xx += w;
   }
-  rows.push({
-    text: line,
-    start
-  });
-  return rows
+  c.restore();
 }
-
 function richDefaults(key) {
-  if (typeof TEMPLATE_KEY !== 'undefined' && TEMPLATE_KEY === 'storage') {
-    const e = window.__storageState || {},
-      front = key === 'storageFront';
+  {
+    const e = window.__storageState || ({}), front = key === 'storageFront';
     return {
       bold: !!e[front ? 'frontBold' : 'backBold'],
       strike: !!e[front ? 'frontStrike' : 'backStrike'],
       underline: !!e[front ? 'frontUnderline' : 'backUnderline']
-    }
+    };
   }
   return {
-    alpha: TEMPLATE_KEY === 'card' ? Number(document.getElementById(key + 'Alpha')?.value ?? 100) / 100 : 1,
+    alpha: 1,
     bold: !!document.getElementById(key + 'Bold')?.checked,
     strike: !!document.getElementById(key + 'Strike')?.checked,
     underline: !!document.getElementById(key + 'Underline')?.checked
-  }
+  };
 }
-
 function refreshRichCanvas() {
-  if (typeof draw === 'function') draw();
-  else if (window.__storageState && window.__setStorageState) window.__setStorageState({
+  if (typeof draw === 'function') draw(); else if (window.__storageState && window.__setStorageState) window.__setStorageState({
     ...window.__storageState
   });
-  document.dispatchEvent(new Event('project-change'))
+  document.dispatchEvent(new Event('project-change'));
 }
-
 function attachRichInputs() {
   let fields;
-  if (TEMPLATE_KEY === 'polaroid') fields = ['frontName', 'frontIP', 'backTitle'].map(k => [document
-    .getElementById(k), k
-  ]);
-  else if (TEMPLATE_KEY === 'card') fields = ['t1', 't2', 't3'].map(k => [document.getElementById(k), k]);
-  else fields = [
-    [document.querySelector('.controls input.text-input'), 'storageFront'],
-    [document.querySelector('.controls textarea.text-input'), 'storageBack']
-  ];
+  fields = [[document.querySelector('.controls input.text-input'), 'storageFront'], [document.querySelector('.controls textarea.text-input'), 'storageBack']];
   for (const [input, key] of fields) {
     if (!input || input.dataset.richAttached) continue;
     input.dataset.richAttached = '1';
@@ -1711,10 +2038,8 @@ function attachRichInputs() {
     richEntry(key, input.value);
     const toolbar = document.createElement('div');
     toolbar.className = 'richSelectionToolbar';
-    toolbar.innerHTML =
-      '<button type="button" data-style="bold"><b>B</b></button><button type="button" data-style="strike"><s>S</s></button><button type="button" data-style="underline"><u>U</u></button>';
-    if (input.parentElement.classList.contains('row')) input.parentElement.after(toolbar);
-    else input.after(toolbar);
+    toolbar.innerHTML = '<button type="button" data-style="bold"><b>B</b></button><button type="button" data-style="strike"><s>S</s></button><button type="button" data-style="underline"><u>U</u></button>';
+    if (input.parentElement.classList.contains('row')) input.parentElement.after(toolbar); else input.after(toolbar);
     let selection = {
       start: 0,
       end: 0
@@ -1726,29 +2051,24 @@ function attachRichInputs() {
     for (const ev of ['select', 'keyup', 'mouseup', 'focus', 'keydown']) input.addEventListener(ev, remember);
     input.addEventListener('input', () => {
       richEntry(key, input.value);
-      remember()
+      remember();
     }, true);
     toolbar.querySelectorAll('button').forEach(button => {
       button.onmousedown = e => {
         remember();
-        e.preventDefault()
+        e.preventDefault();
       };
       button.onclick = () => {
-        let {
-          start,
-          end
-        } = selection;
+        let {start, end} = selection;
         if (start === end) {
           start = 0;
           end = input.value.length;
           if (!end) {
             input.focus();
-            return
+            return;
           }
         }
-        const entry = richEntry(key, input.value),
-          defaults = richDefaults(key),
-          prop = button.dataset.style;
+        const entry = richEntry(key, input.value), defaults = richDefaults(key), prop = button.dataset.style;
         const enabled = !entry.styles.slice(start, end).every(s => ({
           ...defaults,
           ...s
@@ -1759,14 +2079,15 @@ function attachRichInputs() {
         };
         refreshRichCanvas();
         input.focus();
-        input.setSelectionRange(start, end)
-      }
-    })
+        input.setSelectionRange(start, end);
+      };
+    });
   }
 }
 
 </script>
     <script>
+
 const runtime = (() => {
   var e = Object.create,
     t = Object.defineProperty,
@@ -12689,225 +13010,11 @@ framework.t().hydrateRoot(document.getElementById("root"), framework.i().createE
   onRecoverableError: () => {}
 });
 
+
 </script>
-    <style id="equal-panels-v4">
-html,
-body {
-  height: 100% !important;
-  overflow: hidden !important
-}
-
-.app,
-.workspace,
-body>main.workspace {
-  height: 100vh !important;
-  min-height: 0 !important;
-  align-items: stretch !important;
-  grid-template-columns: 380px minmax(0, 1fr) !important;
-  padding: 20px 24px !important
-}
-
-.app>aside,
-body>main.workspace>aside,
-.workspace>.controls,
-body>main.workspace>section:first-child {
-  height: 100% !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  contain: none !important;
-  padding: 0 24px 0 0 !important;
-  scrollbar-width: thin;
-  overscroll-behavior: contain
-}
-
-.app>main,
-.workspace>.preview-area {
-  height: 100% !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  overflow: hidden !important;
-  padding: 0 0 0 24px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important
-}
-
-.previewViewport {
-  width: 100%;
-  min-height: 0;
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden
-}
-
-.canvas-stage {
-  height: auto !important;
-  flex: 1 1 0 !important;
-  min-height: 0 !important;
-  width: 100% !important;
-  display: flex !important;
-  overflow: hidden !important
-}
-
-.canvas-stage>.previewViewport {
-  height: 100%
-}
-
-.app canvas,
-.workspace canvas {
-  width: var(--preview-w, auto) !important;
-  height: auto !important;
-  max-width: none !important;
-  max-height: none !important;
-  flex: 0 0 auto !important
-}
-
-.previewZoom,
-.previewTools,
-.dimensions,
-#status,
-.exports,
-.footnote {
-  flex-shrink: 0 !important
-}
-
-.previewTools {
-  position: relative !important;
-  min-height: 30px !important;
-  margin: 0 !important;
-  justify-content: flex-end !important
-}
-
-.previewTools #sizeBtn {
-  position: static !important;
-  margin-left: auto !important;
-  align-self: flex-end !important
-}
-
-.previewZoom {
-  min-height: 30px;
-  justify-content: center;
-  width: 100%
-}
-
-.previewZoom button {
-  white-space: nowrap
-}
-
-.workspace .exports {
-  margin-top: 0 !important;
-  gap: 6px !important
-}
-
-.workspace .exports button {
-  padding: 9px 7px !important
-}
-
-.workspace .footnote {
-  font-size: 10px !important;
-  line-height: 1.45 !important
-}
-
-.dimensions {
-  padding: 0 !important
-}
-
-.group>summary {
-  display: list-item !important;
-  list-style: disclosure-closed !important
-}
-
-.group[open]>summary {
-  list-style: disclosure-open !important
-}
-
-#generalContent {
-  display: block !important
-}
-
-.tabs {
-  flex-shrink: 0
-}
-
-@media(max-width:900px) {
-
-  .app,
-  .workspace,
-  body>main.workspace {
-    grid-template-columns: minmax(220px, 38%) minmax(0, 1fr) !important;
-    padding: 14px !important
-  }
-
-  .app>aside,
-  body>main.workspace>aside,
-  .workspace>.controls {
-    padding: 0 14px 0 0 !important
-  }
-
-  .app>main,
-  .workspace>.preview-area {
-    border-top: 0 !important;
-    border-left: 1px solid #d9e1ea !important;
-    padding: 0 0 0 14px !important
-  }
-
-  .previewZoom input[type=range] {
-    width: 75px
-  }
-
-  .workspace .exports {
-    grid-template-columns: 1fr 1fr !important
-  }
-}
-
-@media(max-width:540px) {
-
-  .app,
-  .workspace,
-  body>main.workspace {
-    grid-template-columns: minmax(160px, 46%) minmax(0, 1fr) !important;
-    padding: 8px !important
-  }
-
-  .app>aside,
-  body>main.workspace>aside,
-  .workspace>.controls {
-    padding-right: 8px !important
-  }
-
-  .app>main,
-  .workspace>.preview-area {
-    padding-left: 8px !important
-  }
-
-  .previewZoom {
-    gap: 5px
-  }
-
-  .previewZoom input[type=range] {
-    width: 60px
-  }
-
-  .previewZoom input[type=number] {
-    width: 52px
-  }
-
-  .previewTools label {
-    font-size: 10px
-  }
-
-  .workspace .exports button {
-    font-size: 10px !important
-  }
-}
-
-</style>
+    
     <script>
-(function() {
+(function () {
   function fold() {
     document.querySelectorAll(".controls>section").forEach(s => {
       const h = s.querySelector("h2");
@@ -12920,236 +13027,25 @@ body>main.workspace>section:first-child {
       b.onclick = () => {
         const hide = s.classList.toggle("storageCollapsed");
         b.textContent = hide ? "▶" : "▼";
-        b.setAttribute("aria-expanded", String(!hide))
+        b.setAttribute("aria-expanded", String(!hide));
       };
-      h.prepend(b)
-    })
+      h.prepend(b);
+    });
   }
   new MutationObserver(fold).observe(document.body, {
     childList: true,
     subtree: true
   });
-  fold()
+  fold();
 })();
 
 </script>
-    <style id="preview-controls-v5">
-.group>summary,
-.whiteOptions>summary,
-details>summary {
-  list-style: none !important;
-  display: flex !important;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer !important
-}
-
-.group>summary::-webkit-details-marker,
-details>summary::-webkit-details-marker {
-  display: none !important
-}
-
-.group>summary::before,
-details>summary::before {
-  content: "▶";
-  font-size: 10px;
-  line-height: 1;
-  display: inline-block;
-  color: #315b70;
-  flex: 0 0 auto;
-  transform: rotate(0deg)
-}
-
-.group[open]>summary::before,
-details[open]>summary::before {
-  transform: rotate(90deg)
-}
-
-.previewZoom {
-  order: -30 !important;
-  width: 100%;
-  margin: 0 !important;
-  min-height: 32px !important
-}
-
-.previewTools {
-  order: -20 !important
-}
-
-.previewTopline {
-  width: 100%;
-  min-height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-shrink: 0;
-  order: -40 !important
-}
-
-.previewTopline .dimensions {
-  font-size: 12px;
-  text-align: left;
-  margin: 0 !important
-}
-
-.previewZoom {
-  justify-content: center
-}
-
-.previewTopline .dimensions {
-  order: -40
-}
-
-.previewTopline .previewZoom {
-  order: 0 !important;
-  width: auto;
-  flex: 1
-}
-
-.collapseHint {
-  padding: 0 8px 0 0 !important;
-  background: transparent !important;
-  border: 0;
-  color: #315b70;
-  font-size: 10px !important;
-  cursor: pointer
-}
-
-.storageCollapsed>:not(h2) {
-  display: none !important
-}
-
-.previewViewport {
-  order: 0
-}
-
-.preview-head {
-  order: -10 !important;
-  flex-shrink: 0
-}
-
-.dimensions {
-  flex-shrink: 0
-}
-
-</style>
-    <style id="pan-preview-v6">
-.previewTools,
-.previewTopline,
-.dimensionsTop {
-  order: -50 !important;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start !important;
-  flex-shrink: 0;
-  min-height: 28px
-}
-
-.previewTools #sizeBtn {
-  margin: 0 !important;
-  align-self: flex-start !important
-}
-
-.panViewport {
-  width: 100%;
-  min-height: 0;
-  overflow: auto !important;
-  position: relative;
-  scrollbar-width: thin;
-  overscroll-behavior: contain;
-  touch-action: none;
-  cursor: grab
-}
-
-.panSurface {
-  min-width: 100%;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative
-}
-
-.panViewport.dragging {
-  cursor: grabbing
-}
-
-.panSurface canvas {
-  max-width: none !important;
-  max-height: none !important;
-  flex: none !important;
-  touch-action: none
-}
-
-.canvas-stage {
-  overflow: visible !important;
-  display: block !important
-}
-
-.textStyles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 8px 0
-}
-
-.textStyles label {
-  display: flex !important;
-  align-items: center;
-  gap: 5px;
-  margin: 0 !important;
-  font-size: 12px
-}
-
-.previewZoom {
-  display: none !important
-}
-
-.dimensionsTop {
-  font-size: 12px;
-  color: #6b7280
-}
-
-.preview-head {
-  order: -40 !important
-}
-
-</style>
+    
+    
     <script>
-(function() {
-  function enhance() {
-    if (document.querySelector('.app-shell')) return;
-    document.querySelectorAll('input[type=range]').forEach(el => {
-      if (el.dataset.enhanced || el.closest('.previewZoom') || el.dataset.paired) return;
-      el.dataset.paired = '1';
-      let wrap = document.createElement('div');
-      wrap.className = 'rangePair';
-      el.parentNode.insertBefore(wrap, el);
-      wrap.appendChild(el);
-      let input = document.createElement('input');
-      input.type = 'number';
-      input.min = el.min;
-      input.max = el.max;
-      input.step = el.step;
-      input.value = el.value;
-      input.dataset.rangeFor = el.id;
-      wrap.appendChild(input);
-      el.addEventListener('input', () => input.value = el.value);
-      input.oninput = () => {
-        el.value = input.value;
-        el.dispatchEvent(new Event('input', {
-          bubbles: true
-        }))
-      }
-    })
-  }
-
+(function () {
   function setup() {
-    const preview = document.querySelector('.app>main') || document.querySelector(
-        '.workspace>.preview-area'),
-      canvas = preview?.querySelector('canvas');
+    const preview = document.querySelector('.app>main') || document.querySelector('.workspace>.preview-area'), canvas = preview?.querySelector('canvas');
     if (!preview || !canvas || preview.dataset.panSetup) return;
     preview.dataset.panSetup = '1';
     const viewport = document.createElement('div');
@@ -13160,56 +13056,41 @@ details[open]>summary::before {
     viewport.appendChild(surface);
     surface.appendChild(canvas);
     const stage = viewport.closest('.canvas-stage');
-    let zoom = 100,
-      base = 1,
-      drag = null;
-
+    let zoom = 100, base = 1, drag = null;
     function report() {
       parent.postMessage({
         type: 'preview-zoom',
         zoom
-      }, '*')
+      }, '*');
     }
-
     function fit() {
-      const host = stage || viewport,
-        children = [...preview.children].filter(e => e !== host && getComputedStyle(e).display !== 'none'),
-        gap = Number.parseFloat(getComputedStyle(preview).rowGap) || 10;
-      const used = children.reduce((n, e) => n + e.getBoundingClientRect().height, 0) + gap * children
-        .length,
-        h = Math.max(40, preview.clientHeight - used);
+      const host = stage || viewport, children = [...preview.children].filter(e => e !== host && getComputedStyle(e).display !== 'none'), gap = Number.parseFloat(getComputedStyle(preview).rowGap) || 10;
+      const used = children.reduce((n, e) => n + e.getBoundingClientRect().height, 0) + gap * children.length, h = Math.max(40, preview.clientHeight - used);
       host.style.setProperty('height', h + 'px', 'important');
       host.style.setProperty('flex', '0 0 ' + h + 'px', 'important');
       viewport.style.height = '100%';
-      const w = Math.max(1, viewport.clientWidth - 8),
-        availableH = Math.max(1, viewport.clientHeight - 8);
+      const w = Math.max(1, viewport.clientWidth - 8), availableH = Math.max(1, viewport.clientHeight - 8);
       base = Math.min(w, availableH * canvas.width / canvas.height);
-      apply(false)
+      apply(false);
     }
-
     function apply(center = true, point = null) {
-      const ratio = canvas.height / canvas.width,
-        oldW = parseFloat(canvas.style.width) || base;
-      const px = point?.x ?? viewport.clientWidth / 2,
-        py = point?.y ?? viewport.clientHeight / 2,
-        rx = (viewport.scrollLeft + px) / Math.max(oldW, viewport.clientWidth),
-        ry = (viewport.scrollTop + py) / Math.max(oldW * ratio, viewport.clientHeight);
+      const ratio = canvas.height / canvas.width, oldW = parseFloat(canvas.style.width) || base;
+      const px = point?.x ?? viewport.clientWidth / 2, py = point?.y ?? viewport.clientHeight / 2, rx = (viewport.scrollLeft + px) / Math.max(oldW, viewport.clientWidth), ry = (viewport.scrollTop + py) / Math.max(oldW * ratio, viewport.clientHeight);
       const w = base * zoom / 100;
       canvas.style.setProperty('--preview-w', w + 'px');
       canvas.style.setProperty('width', w + 'px', 'important');
-      canvas.style.setProperty('height', (w * ratio) + 'px', 'important');
+      canvas.style.setProperty('height', w * ratio + 'px', 'important');
       surface.style.width = Math.max(w, viewport.clientWidth) + 'px';
       surface.style.height = Math.max(w * ratio, viewport.clientHeight) + 'px';
       if (center) {
         viewport.scrollLeft = rx * Math.max(w, viewport.clientWidth) - px;
-        viewport.scrollTop = ry * Math.max(w * ratio, viewport.clientHeight) - py
+        viewport.scrollTop = ry * Math.max(w * ratio, viewport.clientHeight) - py;
       }
-      report()
+      report();
     }
-
     function setZoom(value, point) {
       zoom = Math.min(500, Math.max(20, Number(value) || 100));
-      apply(true, point)
+      apply(true, point);
     }
     window.addEventListener('message', e => {
       if (e.source !== parent) return;
@@ -13217,7 +13098,7 @@ details[open]>summary::before {
       if (e.data?.type === 'fit-preview') {
         zoom = 100;
         fit();
-        viewport.scrollLeft = viewport.scrollTop = 0
+        viewport.scrollLeft = viewport.scrollTop = 0;
       }
     });
     viewport.addEventListener('wheel', e => {
@@ -13227,10 +13108,10 @@ details[open]>summary::before {
         setZoom(zoom * Math.exp(-e.deltaY * .0015), {
           x: e.clientX - r.left,
           y: e.clientY - r.top
-        })
+        });
       } else if (e.shiftKey) {
         e.preventDefault();
-        viewport.scrollLeft += e.deltaY || e.deltaX
+        viewport.scrollLeft += e.deltaY || e.deltaX;
       }
     }, {
       passive: false
@@ -13246,19 +13127,18 @@ details[open]>summary::before {
         top: viewport.scrollTop
       };
       viewport.setPointerCapture(e.pointerId);
-      viewport.classList.add('dragging')
+      viewport.classList.add('dragging');
     }, true);
     viewport.addEventListener('pointermove', e => {
       if (!drag) return;
       e.preventDefault();
       e.stopPropagation();
       viewport.scrollLeft = drag.left - (e.clientX - drag.x);
-      viewport.scrollTop = drag.top - (e.clientY - drag.y)
+      viewport.scrollTop = drag.top - (e.clientY - drag.y);
     }, true);
-
     function end() {
       drag = null;
-      viewport.classList.remove('dragging')
+      viewport.classList.remove('dragging');
     }
     viewport.addEventListener('pointerup', end);
     viewport.addEventListener('pointercancel', end);
@@ -13269,121 +13149,38 @@ details[open]>summary::before {
   }
   new MutationObserver(() => {
     setup();
-    enhance()
   }).observe(document.body, {
     subtree: true,
     childList: true
   });
   setup();
-  enhance();
 })();
 
 </script>
+    
     <script>
-(function() {
+(function () {
   function move() {
-    const p = document.querySelector('.workspace>.preview-area'),
-      d = p?.querySelector('.dimensions');
-    if (!p || !d || d.classList.contains('dimensionsTop')) return;
-    d.classList.add('dimensionsTop');
-    p.insertBefore(d, p.firstChild)
-  }
-  new MutationObserver(move).observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-  move()
-})();
-
-</script>
-    <script>
-(function() {
-  function move() {
-    const target = document.querySelector('.storageExportTarget'),
-      buttons = document.querySelector('.exports');
+    const target = document.querySelector('.storageExportTarget'), buttons = document.querySelector('.exports');
     if (target && buttons && buttons.parentNode !== target) {
       target.appendChild(buttons);
-      window.dispatchEvent(new Event('resize'))
+      window.dispatchEvent(new Event('resize'));
     }
   }
   new MutationObserver(move).observe(document.body, {
     subtree: true,
     childList: true
   });
-  move()
+  move();
 })();
 
 </script>
-    <style>
-.storageExportTarget .exports {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px
-}
-
-.storageExportTarget .exports button {
-  font-size: 12px
-}
-
-.storageWhiteOptions {
-  margin: 12px 0;
-  border: 1px solid #d9e1ea;
-  padding: 10px
-}
-
-.storageExportSettings>.ghost {
-  width: 100%;
-  background: #315b70;
-  color: white
-}
-
-</style>
-    <style id="title-size-v8">
-.previewTools,
-.previewTopline,
-.dimensions,
-.dimensionsTop {
-  display: none !important
-}
-
-</style>
-    <style>
-.richSelectionToolbar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin: 6px 0 12px
-}
-
-.richSelectionToolbar span {
-  font-size: 11px;
-  color: #6b7280
-}
-
-.richSelectionToolbar button {
-  width: 30px;
-  height: 28px;
-  border: 1px solid #d9e1ea;
-  background: #fff;
-  color: #315b70;
-  padding: 3px;
-  font-size: 13px;
-  cursor: pointer
-}
-
-.richSelectionToolbar button:hover {
-  background: #dbe8f1
-}
-
-</style>
+    
+    
+    
     <script>
-const projectHistory = [],
-  projectFuture = [],
-  projectImageCache = new WeakMap();
-let projectRestoring = false,
-  projectTimer = null;
-
+const projectHistory = [], projectFuture = [], projectImageCache = new WeakMap();
+let projectRestoring = false, projectTimer = null;
 function imageData(img) {
   if (!img) return null;
   if (img.src?.startsWith('data:')) return img.src;
@@ -13394,67 +13191,23 @@ function imageData(img) {
   c.getContext('2d').drawImage(img, 0, 0);
   const src = c.toDataURL('image/png');
   projectImageCache.set(img, src);
-  return src
+  return src;
 }
-
 function projectDecode(src) {
   return new Promise((resolve, reject) => {
     if (!src) {
       resolve(null);
-      return
+      return;
     }
     const image = new Image();
     image.onload = () => resolve(image);
     image.onerror = reject;
-    image.src = src
-  })
-}
-
-function readForm() {
-  const values = {};
-  document.querySelectorAll('input[id],select[id],textarea[id]').forEach(el => {
-    if (el.type === 'file' || el.dataset.rangeFor || el.id.endsWith('_input') || el.closest(
-        '.richSelectionToolbar')) return;
-    values[el.id] = el.type === 'checkbox' ? el.checked : el.value
+    image.src = src;
   });
-  return values
 }
-
-function writeForm(values) {
-  for (const [id, value] of Object.entries(values || {})) {
-    const el = document.getElementById(id);
-    if (!el || el.type === 'file') continue;
-    if (el.type === 'checkbox') el.checked = !!value;
-    else el.value = value
-  }
-}
-
 function projectSnapshot() {
   let data;
-  if (TEMPLATE_KEY === 'polaroid') data = {
-    values: readForm(),
-    side,
-    hidden: {
-      ...layerHidden
-    },
-    images: {
-      charImg: imageData(charImg),
-      charBgImg: imageData(charBgImg),
-      frontTextureImg: imageData(frontTextureImg),
-      backTextureImg: imageData(backTextureImg),
-      frontCustomIcon: imageData(frontCustomIcon),
-      backCustomIcon: imageData(backCustomIcon)
-    }
-  };
-  else if (TEMPLATE_KEY === 'card') data = {
-    values: readForm(),
-    layers: Object.fromEntries(Object.entries(layers).map(([k, l]) => [k, {
-      ...Object.fromEntries(Object.entries(l).filter(([key]) => !['img', 'original'].includes(
-      key))),
-      src: l.src
-    }]))
-  };
-  else data = {
+  data = {
     state: {
       ...window.__storageState,
       whiteHidden: {
@@ -13469,101 +13222,58 @@ function projectSnapshot() {
     template: TEMPLATE_KEY,
     data,
     rich: JSON.parse(JSON.stringify(richTextState))
-  }
+  };
 }
-
 function notifyHistory() {
   parent.postMessage({
     type: 'history-state',
     canUndo: projectHistory.length > 1,
     canRedo: projectFuture.length > 0
-  }, '*')
+  }, '*');
 }
-
 function recordProject() {
   clearTimeout(projectTimer);
-  if (projectRestoring || TEMPLATE_KEY === 'storage' && !window.__storageState) return;
+  if (projectRestoring || !window.__storageState) return;
   const snap = projectSnapshot();
-  if (projectHistory.length && JSON.stringify(projectHistory[projectHistory.length - 1]) === JSON.stringify(
-      snap)) return;
+  if (projectHistory.length && JSON.stringify(projectHistory[projectHistory.length - 1]) === JSON.stringify(snap)) return;
   projectHistory.push(snap);
   if (projectHistory.length > 40) projectHistory.shift();
   projectFuture.length = 0;
-  notifyHistory()
+  notifyHistory();
 }
-
 function queueProject() {
   if (projectRestoring) return;
   clearTimeout(projectTimer);
-  projectTimer = setTimeout(recordProject, 250)
+  projectTimer = setTimeout(recordProject, 250);
 }
 async function applyProject(project, reset = false) {
   projectRestoring = true;
   clearTimeout(projectTimer);
   try {
     for (const k of Object.keys(richTextState)) delete richTextState[k];
-    Object.assign(richTextState, JSON.parse(JSON.stringify(project.rich || {})));
+    Object.assign(richTextState, JSON.parse(JSON.stringify(project.rich || ({}))));
     const d = project.data;
-    if (TEMPLATE_KEY === 'polaroid') {
-      writeForm(d.values);
-      for (const k of Object.keys(layerHidden)) delete layerHidden[k];
-      Object.assign(layerHidden, d.hidden || {});
-      let imgs = await Promise.all(['charImg', 'charBgImg', 'frontTextureImg', 'backTextureImg',
-        'frontCustomIcon', 'backCustomIcon'
-      ].map(k => projectDecode(d.images?.[k])));
-      [charImg, charBgImg, frontTextureImg, backTextureImg, frontCustomIcon, backCustomIcon] = imgs;
-      side = d.side === 'back' ? 'back' : 'front';
-      document.getElementById(side === 'back' ? 'backTab' : 'frontTab').click();
-      document.querySelectorAll('[data-eye]').forEach(b => {
-        b.style.opacity = layerHidden[b.dataset.eye] ? '.35' : '1';
-        b.setAttribute('aria-pressed', String(!!layerHidden[b.dataset.eye]))
-      });
-      updateTextureLocks();
-      refreshRangeDisplays();
-      await ensurePolMasks();
-      draw()
-    } else if (TEMPLATE_KEY === 'card') {
-      writeForm(d.values);
-      for (const k of ['main', 'corner']) {
-        const saved = d.layers[k];
-        let original = null;
-        if (saved.src) {
-          if (saved.kind === 'builtin') original = await decode(saved.src);
-          else original = await projectDecode(saved.src)
-        }
-        layers[k] = {
-          ...saved,
-          original,
-          img: original
-        };
-        if (k === 'corner' && original) layers[k].img = prepareIcon(original, saved.kind === 'builtin')
-      }
-      sync();
-      draw();
-      document.getElementById('guides')?.dispatchEvent(new Event('input', {
-        bubbles: true
-      }))
-    } else {
+    {
       const img = await projectDecode(d.image);
       window.__setStorageImage(img);
       window.__setStorageState({
         ...d.state
-      })
+      });
     }
     await new Promise(r => setTimeout(r, 60));
     attachRichInputs();
     if (reset) {
       projectHistory.length = 0;
       projectFuture.length = 0;
-      projectHistory.push(projectSnapshot())
+      projectHistory.push(projectSnapshot());
     }
     notifyHistory();
     parent.postMessage({
       type: 'project-loaded',
       template: TEMPLATE_KEY
-    }, '*')
+    }, '*');
   } finally {
-    projectRestoring = false
+    projectRestoring = false;
   }
 }
 async function undoProject() {
@@ -13573,7 +13283,7 @@ async function undoProject() {
   if (projectHistory.length < 2) return;
   projectFuture.push(projectHistory.pop());
   await applyProject(projectHistory[projectHistory.length - 1]);
-  notifyHistory()
+  notifyHistory();
 }
 async function redoProject() {
   if (projectRestoring) return;
@@ -13582,20 +13292,17 @@ async function redoProject() {
   const next = projectFuture.pop();
   projectHistory.push(next);
   await applyProject(next);
-  notifyHistory()
+  notifyHistory();
 }
-
 function saveUnifiedProject() {
   recordProject();
   const blob = new Blob([JSON.stringify(projectSnapshot())], {
-      type: 'application/json'
-    }),
-    url = URL.createObjectURL(blob),
-    a = document.createElement('a');
+    type: 'application/json'
+  }), url = URL.createObjectURL(blob), a = document.createElement('a');
   a.href = url;
   a.download = 'card-project-' + TEMPLATE_KEY + '.json';
   a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 4000)
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
 }
 document.addEventListener('input', queueProject);
 document.addEventListener('change', queueProject);
@@ -13607,8 +13314,7 @@ document.addEventListener('keydown', e => {
   if (key === 'z' || key === 'y') {
     e.preventDefault();
     e.stopPropagation();
-    if (key === 'y' || e.shiftKey) redoProject();
-    else undoProject()
+    if (key === 'y' || e.shiftKey) redoProject(); else undoProject();
   }
 });
 window.addEventListener('message', async e => {
@@ -13617,12 +13323,12 @@ window.addEventListener('message', async e => {
     if (e.data?.type === 'undo-project') await undoProject();
     if (e.data?.type === 'redo-project') await redoProject();
     if (e.data?.type === 'save-project') saveUnifiedProject();
-    if (e.data?.type === 'open-project') await applyProject(e.data.project, true)
+    if (e.data?.type === 'open-project') await applyProject(e.data.project, true);
   } catch (err) {
     parent.postMessage({
       type: 'project-error',
       message: '项目读取失败：' + (err.message || '文件或图片无效')
-    }, '*')
+    }, '*');
   }
 });
 new MutationObserver(attachRichInputs).observe(document.body, {
@@ -13635,158 +13341,23 @@ setTimeout(() => {
   parent.postMessage({
     type: 'template-ready',
     template: TEMPLATE_KEY
-  }, '*')
+  }, '*');
 }, 200);
 
 </script>
-    <style id="project-popup-v10">
-.textStyles,
-.hint,
-.help,
-.disabledHint,
-.footnote,
-.rangeHint {
-  display: none !important
-}
-
-.richSelectionToolbar {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  width: 100%;
-  justify-content: flex-start;
-  gap: 6px;
-  margin: 7px 0 12px
-}
-
-.richSelectionToolbar span {
-  display: none !important
-}
-
-.richSelectionToolbar button {
-  flex: 0 0 30px !important;
-  width: 30px !important;
-  height: 28px !important;
-  padding: 3px !important
-}
-
-.projectModal {
-  position: fixed;
-  inset: 0;
-  background: #24374666;
-  z-index: 1000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 18px;
-  overflow: auto
-}
-
-.projectDialog {
-  width: min(520px, 100%);
-  background: #f4f7fb;
-  border: 1px solid #becbd5;
-  padding: 18px;
-  max-height: calc(100vh - 36px);
-  overflow: auto;
-  color: #1f2937
-}
-
-.projectDialogHead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #d9e1ea;
-  padding-bottom: 12px;
-  margin-bottom: 16px
-}
-
-.projectDialogHead strong {
-  font-size: 17px
-}
-
-.projectClose {
-  background: transparent !important;
-  border: 0;
-  font-size: 24px !important;
-  padding: 0 5px !important
-}
-
-.projectFileActions {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 18px
-}
-
-.projectFileActions button {
-  flex: 1;
-  border: 1px solid #d9e1ea;
-  padding: 10px;
-  background: white;
-  color: #315b70;
-  cursor: pointer
-}
-
-.projectExports>details.group {
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important
-}
-
-.projectExports>details.group>summary {
-  display: none !important
-}
-
-.projectExports .storageExportSettings {
-  border: 0;
-  padding: 0;
-  margin: 0
-}
-
-.projectExports h2 {
-  font-size: 14px
-}
-
-.projectExports .richSelectionToolbar {
-  display: none !important
-}
-
-.projectExports button {
-  cursor: pointer
-}
-
-.projectModal[hidden] {
-  display: none !important
-}
-
-.projectDialog .groupBody {
-  padding: 0
-}
-
-.projectDialog .hint,
-.projectDialog .help {
-  display: none !important
-}
-
-</style>
+    
     <script>
-(function() {
-  let modal = null,
-    exportSection = null;
-
+(function () {
+  let modal = null, exportSection = null;
   function simplifyTextControls() {
     document.querySelectorAll('.textStyles').forEach(e => e.hidden = true);
-    if (TEMPLATE_KEY === 'storage') document.querySelectorAll('.controls label.check').forEach(label => {
-      if (['文字加粗', '删除线', '下划线'].includes(label.textContent.trim())) label.hidden = true
-    })
+    document.querySelectorAll('.controls label.check').forEach(label => {
+      if (['文字加粗', '删除线', '下划线'].includes(label.textContent.trim())) label.hidden = true;
+    });
   }
-
   function findExport() {
-    if (TEMPLATE_KEY === 'storage') return document.querySelector('.storageExportSettings');
-    return [...document.querySelectorAll('details.group')].find(el => el.querySelector('summary')
-      ?.textContent.trim() === '导出')
+    return document.querySelector('.storageExportSettings');
   }
-
   function setupMenu() {
     simplifyTextControls();
     if (modal) return;
@@ -13795,21 +13366,20 @@ setTimeout(() => {
     modal = document.createElement('div');
     modal.className = 'projectModal';
     modal.hidden = true;
-    modal.innerHTML =
-      '<div class="projectDialog" role="dialog" aria-modal="true" aria-label="项目"><div class="projectDialogHead"><strong>项目</strong><button type="button" class="projectClose" aria-label="关闭">×</button></div><div class="projectFileActions"><button type="button" data-save>保存项目</button><button type="button" data-open>打开项目</button><input type="file" accept=".json,application/json" hidden></div><div class="projectExports"></div></div>';
-    const root = TEMPLATE_KEY === 'storage' ? document.querySelector('.app-shell') : document.body;
+    modal.innerHTML = '<div class="projectDialog" role="dialog" aria-modal="true" aria-label="项目"><div class="projectDialogHead"><strong>项目</strong><button type="button" class="projectClose" aria-label="关闭">×</button></div><div class="projectFileActions"><button type="button" data-save>保存项目</button><button type="button" data-open>打开项目</button><input type="file" accept=".json,application/json" hidden></div><div class="projectExports"></div></div>';
+    const root = document.querySelector('.app-shell');
     root.appendChild(modal);
     modal.querySelector('.projectExports').appendChild(exportSection);
     if (exportSection.tagName === 'DETAILS') exportSection.open = true;
     modal.querySelector('.projectClose').onclick = () => modal.hidden = true;
     modal.onclick = e => {
-      if (e.target === modal) modal.hidden = true
+      if (e.target === modal) modal.hidden = true;
     };
     modal.querySelector('[data-save]').onclick = saveUnifiedProject;
     const file = modal.querySelector('[type=file]');
     modal.querySelector('[data-open]').onclick = () => {
       file.value = '';
-      file.click()
+      file.click();
     };
     file.onchange = async () => {
       try {
@@ -13819,16 +13389,16 @@ setTimeout(() => {
           type: 'import-project-data',
           project: p
         }, '*');
-        modal.hidden = true
+        modal.hidden = true;
       } catch (e) {
-        alert('项目文件无法读取')
+        alert('项目文件无法读取');
       }
-    }
+    };
   }
   window.addEventListener('message', e => {
     if (e.source === parent && e.data?.type === 'project-menu') {
       setupMenu();
-      if (modal) modal.hidden = !modal.hidden
+      if (modal) modal.hidden = !modal.hidden;
     }
   });
   document.addEventListener('keydown', e => {
@@ -13840,18 +13410,17 @@ setTimeout(() => {
     if (!input?.dataset.richKey) return;
     e.preventDefault();
     e.stopPropagation();
-    const container = input.parentElement.classList.contains('row') ? input.parentElement
-      .nextElementSibling : input.nextElementSibling;
+    const container = input.parentElement.classList.contains('row') ? input.parentElement.nextElementSibling : input.nextElementSibling;
     const toolbar = container?.classList.contains('richSelectionToolbar') ? container : null;
     toolbar?.querySelector('[data-style="' + ({
       b: 'bold',
       s: 'strike',
       u: 'underline'
-    } [key]) + '"]').click()
+    })[key] + '"]').click();
   }, true);
   new MutationObserver(() => {
     simplifyTextControls();
-    setupMenu()
+    setupMenu();
   }).observe(document.body, {
     childList: true,
     subtree: true
@@ -13860,198 +13429,22 @@ setTimeout(() => {
 })();
 
 </script>
-    <style>
-.workspace>.preview-area>.preview-head {
-  display: none !important
-}
-
-</style>
-    <style id="section-lines-v11">
-.controls .tabs,
-.app>aside>.tabs {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px !important;
-  background: transparent !important;
-  padding: 0 0 14px !important;
-  margin: 0 !important;
-  border-bottom: 0 !important
-}
-
-.controls .tabs button,
-.app>aside>.tabs button {
-  background: #243746 !important;
-  color: #cbd5e1 !important;
-  border: 0 !important;
-  border-bottom: 3px solid transparent !important;
-  padding: 10px 12px !important
-}
-
-.controls .tabs button.active,
-.app>aside>.tabs button.active {
-  background: #315b70 !important;
-  color: #fff !important;
-  border-bottom-color: #a4c6d8 !important
-}
-
-.app>aside>#generalSection {
-  border-top: 0 !important;
-  padding-top: 0 !important
-}
-
-.app>aside>#frontPanel>.group:first-child,
-.app>aside>#backPanel>.group:first-child,
-body>main.workspace>aside.controls>.group:first-child {
-  border-top: 0 !important;
-  padding-top: 0 !important
-}
-
-.controls>section {
-  border-bottom: 0 !important;
-  border-top: 1px solid #d9e1ea !important;
-  padding: 16px 0 !important;
-  margin: 0 !important
-}
-
-.controls>.tabs+section {
-  border-top: 0 !important;
-  padding-top: 0 !important
-}
-
-</style>
-    <style id="compact-layout-v12">
-.fiveButtons {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 4px;
-  margin: 12px 0
-}
-
-.fiveButtons button {
-  font-size: 10px !important;
-  padding: 8px 2px !important;
-  white-space: nowrap;
-  min-width: 0;
-  font-weight: 600
-}
-
-.compactColorAlpha {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  width: 100%;
-  margin: 10px 0;
-  min-height: 34px
-}
-
-.compactCaption {
-  font-size: 12px;
-  color: #526879;
-  flex: 0 0 30px
-}
-
-.compactColorAlpha input[type=color] {
-  width: 38px !important;
-  min-width: 38px;
-  height: 30px !important;
-  flex: 0 0 38px;
-  padding: 2px
-}
-
-.compactColorAlpha input[type=range] {
-  flex: 1 !important;
-  width: 0 !important;
-  min-width: 50px;
-  padding: 0;
-  margin: 0
-}
-
-.compactColorAlpha input:not([type=color]):not([type=range]) {
-  width: 58px !important;
-  flex: 0 0 58px !important;
-  padding: 5px !important;
-  text-align: center
-}
-
-.compactColorAlpha[hidden] {
-  display: none !important
-}
-
-.richSelectionToolbar {
-  width: 100%;
-  gap: 5px !important;
-  align-items: center
-}
-
-.richSelectionToolbar select {
-  flex: 1 !important;
-  width: auto !important;
-  min-width: 100px !important;
-  max-width: 220px;
-  padding: 5px !important;
-  height: 29px;
-  font-size: 12px
-}
-
-.richSelectionToolbar button {
-  flex: 0 0 27px !important;
-  width: 27px !important
-}
-
-.fontSizeReset {
-  flex: 0 0 auto !important;
-  padding: 6px 8px !important;
-  font-size: 11px !important;
-  white-space: nowrap;
-  margin: 0 !important
-}
-
-.fontSizeRow {
-  display: flex;
-  align-items: center;
-  gap: 7px
-}
-
-.fontSizeRow>input {
-  flex: 1;
-  width: 0 !important
-}
-
-.rangeHeader .fontSizeReset {
-  width: auto
-}
-
-.rangeHeader {
-  gap: 6px
-}
-
-.mainBackgroundComponent input:disabled {
-  opacity: .4
-}
-
-label[hidden],
-.rangeControl[hidden],
-.rangePair[hidden],
-.range[hidden] {
-  display: none !important
-}
-
-</style>
+    
+    
+    
     <script>
-(function() {
+(function () {
   function removeLabel(el) {
     const p = el?.previousElementSibling;
-    if (p?.tagName === 'LABEL' && !p.querySelector('input,select')) p.hidden = true
+    if (p?.tagName === 'LABEL' && !p.querySelector('input,select')) p.hidden = true;
   }
-
   function compactColor(color, alpha, caption, number = null) {
     if (!color || !alpha) return null;
     if (color.dataset.compactDone) return color.closest('.compactColorAlpha');
     color.dataset.compactDone = '1';
     removeLabel(color);
-    const wrapper = alpha.closest('.rangeControl,.rangePair') || (alpha.closest('label.range'));
-    const num = number || (alpha.id && document.getElementById(alpha.id + '_input')) || wrapper
-      ?.querySelector('input[type=number]');
+    const wrapper = alpha.closest('.rangeControl,.rangePair') || alpha.closest('label.range');
+    const num = number || alpha.id && document.getElementById(alpha.id + '_input') || wrapper?.querySelector('input[type=number]');
     const row = document.createElement('div');
     row.className = 'compactColorAlpha';
     const label = document.createElement('span');
@@ -14060,12 +13453,11 @@ label[hidden],
     row.appendChild(label);
     color.parentNode.insertBefore(row, color);
     row.appendChild(color);
-    if (wrapper) wrapper.hidden = true;
-    else removeLabel(alpha);
+    if (wrapper) wrapper.hidden = true; else removeLabel(alpha);
     row.appendChild(alpha);
     if (num) {
       num.dataset.rangeFor = alpha.id || 'react-opacity';
-      row.appendChild(num)
+      row.appendChild(num);
     } else {
       const n = document.createElement('input');
       n.type = 'number';
@@ -14078,35 +13470,23 @@ label[hidden],
         alpha.value = n.value;
         alpha.dispatchEvent(new Event('input', {
           bubbles: true
-        }))
+        }));
       };
-      row.appendChild(n)
+      row.appendChild(n);
     }
     alpha.title = '不透明度 / %';
-    return row
+    return row;
   }
-
   function setup() {
-    const fields = TEMPLATE_KEY === 'polaroid' ? [
-      ['frontName', 'frontNameFont', 'frontNameSize', 'frontNameColor', 'frontNameAlpha', 70],
-      ['frontIP', 'frontIPFont', 'frontIPSize', 'frontIPColor', 'frontIPAlpha', 39],
-      ['backTitle', 'backTitleFont', 'backTitleSize', 'backTitleColor', 'backTitleAlpha', 39]
-    ] : TEMPLATE_KEY === 'card' ? [
-      ['t1', 'f1', 's1', 'tc1', 't1Alpha', 16],
-      ['t2', 'f2', 's2', 'tc2', 't2Alpha', 6],
-      ['t3', 'f3', 's3', 'tc3', 't3Alpha', 9]
-    ] : [];
+    const fields = [];
     for (const [textId, fontId, sizeId, colorId, alphaId, defaultSize] of fields) {
-      const text = document.getElementById(textId),
-        font = document.getElementById(fontId),
-        size = document.getElementById(sizeId);
+      const text = document.getElementById(textId), font = document.getElementById(fontId), size = document.getElementById(sizeId);
       if (!text || !font || !size) continue;
-      const toolbar = (text.parentElement.classList.contains('row') ? text.parentElement
-        .nextElementSibling : text.nextElementSibling);
+      const toolbar = text.parentElement.classList.contains('row') ? text.parentElement.nextElementSibling : text.nextElementSibling;
       if (toolbar?.classList.contains('richSelectionToolbar') && !font.dataset.compactFont) {
         removeLabel(font);
         font.dataset.compactFont = '1';
-        toolbar.appendChild(font)
+        toolbar.appendChild(font);
       }
       if (!size.dataset.resetAttached) {
         size.dataset.resetAttached = '1';
@@ -14119,53 +13499,23 @@ label[hidden],
           size.dispatchEvent(new Event('input', {
             bubbles: true
           }));
-          if (typeof draw === 'function') draw()
+          if (typeof draw === 'function') draw();
         };
         const header = size.closest('.rangeControl')?.querySelector('.rangeHeader');
-        if (header) header.appendChild(b);
-        else {
+        if (header) header.appendChild(b); else {
           const row = document.createElement('div');
           row.className = 'fontSizeRow';
           size.parentNode.insertBefore(row, size);
           row.appendChild(size);
-          row.appendChild(b)
+          row.appendChild(b);
         }
       }
       compactColor(document.getElementById(colorId), document.getElementById(alphaId), '颜色');
     }
-    if (TEMPLATE_KEY === 'card') {
-      const inside = compactColor(document.getElementById('iconBlack'), document.getElementById(
-          'iconBlackOpacity'), '内部'),
-        outside = compactColor(document.getElementById('iconGray'), document.getElementById(
-          'iconGrayOpacityRange'), '外部', document.getElementById('iconGrayOpacity'));
-      const custom = layers.corner.kind !== 'builtin';
-      if (inside) {
-        const caption = inside.querySelector('.compactCaption'),
-          text = custom ? '颜色' : '内部';
-        if (caption.textContent !== text) caption.textContent = text;
-      }
-      if (outside) outside.hidden = custom
-    }
-    if (TEMPLATE_KEY === 'polaroid') {
-      const inside = compactColor(document.getElementById('backIconBlackColor'), document.getElementById(
-          'backIconBlackAlpha'), '内部'),
-        outside = compactColor(document.getElementById('backIconGrayColor'), document.getElementById(
-          'backIconGrayAlpha'), '外部'),
-        custom = val('backPath') === 'custom';
-      if (inside) {
-        const caption = inside.querySelector('.compactCaption'),
-          text = custom ? '颜色' : '内部';
-        if (caption.textContent !== text) caption.textContent = text;
-      }
-      if (outside) outside.hidden = custom
-    }
-    if (TEMPLATE_KEY === 'storage') {
-      const input = document.querySelector('.controls input.text-input') || document.querySelector(
-        '.controls textarea.text-input');
+    {
+      const input = document.querySelector('.controls input.text-input') || document.querySelector('.controls textarea.text-input');
       if (!input) return;
-      const section = input.closest('section'),
-        toolbar = input.nextElementSibling,
-        font = section.querySelector('.font-row select');
+      const section = input.closest('section'), toolbar = input.nextElementSibling, font = section.querySelector('.font-row select');
       if (toolbar?.classList.contains('richSelectionToolbar') && font) {
         font.closest('label').hidden = true;
         let compactFont = toolbar.querySelector('select');
@@ -14176,14 +13526,12 @@ label[hidden],
             ...e,
             [e.side === 'front' ? 'frontFont' : 'backFont']: compactFont.value
           }));
-          toolbar.appendChild(compactFont)
+          toolbar.appendChild(compactFont);
         }
         const e = window.__storageState;
-        compactFont.value = e[e.side === 'front' ? 'frontFont' : 'backFont']
+        compactFont.value = e[e.side === 'front' ? 'frontFont' : 'backFont'];
       }
-      const ranges = [...section.querySelectorAll('label.range')],
-        size = ranges.find(x => x.querySelector('div span')?.textContent === '字号'),
-        alpha = ranges.find(x => x.querySelector('div span')?.textContent === '文字不透明度');
+      const ranges = [...section.querySelectorAll('label.range')], size = ranges.find(x => x.querySelector('div span')?.textContent === '字号'), alpha = ranges.find(x => x.querySelector('div span')?.textContent === '文字不透明度');
       if (size && !size.dataset.resetAttached) {
         size.dataset.resetAttached = '1';
         const b = document.createElement('button');
@@ -14194,10 +13542,9 @@ label[hidden],
           ...e,
           [e.side === 'front' ? 'frontFontSize' : 'backFontSize']: e.side === 'front' ? 36 : 32
         }));
-        size.querySelector('div').appendChild(b)
+        size.querySelector('div').appendChild(b);
       }
-      const colorLabel = [...document.querySelectorAll('label.color-row')].find(x => x.querySelector('span')
-        ?.textContent === '文字');
+      const colorLabel = [...document.querySelectorAll('label.color-row')].find(x => x.querySelector('span')?.textContent === '文字');
       if (colorLabel) colorLabel.hidden = true;
       if (alpha) {
         alpha.hidden = true;
@@ -14219,37 +13566,32 @@ label[hidden],
           slider.min = 0;
           slider.max = 100;
           slider.dataset.storageTextAlpha = '1';
-          slider.value = window.__storageState[window.__storageState.side === 'front' ? 'frontTextAlpha' :
-            'backTextAlpha'] ?? 100;
+          slider.value = window.__storageState[window.__storageState.side === 'front' ? 'frontTextAlpha' : 'backTextAlpha'] ?? 100;
           slider.oninput = () => window.__setStorageState(e => ({
             ...e,
             [e.side === 'front' ? 'frontTextAlpha' : 'backTextAlpha']: Number(slider.value)
           }));
           holder.appendChild(slider);
-          compactColor(color, slider, '颜色')
+          compactColor(color, slider, '颜色');
         }
         const e = window.__storageState;
-        const row = color.closest('.compactColorAlpha'),
-          slider = row.querySelector('[data-storage-text-alpha]'),
-          num = row.querySelector('input[type=number]');
+        const row = color.closest('.compactColorAlpha'), slider = row.querySelector('[data-storage-text-alpha]'), num = row.querySelector('input[type=number]');
         if (document.activeElement !== color) color.value = e.textColor;
         if (document.activeElement !== slider) {
           slider.value = e[e.side === 'front' ? 'frontTextAlpha' : 'backTextAlpha'] ?? 100;
-          if (document.activeElement !== num) num.value = slider.value
+          if (document.activeElement !== num) num.value = slider.value;
         }
       }
-
     }
   }
   let pending = false;
-
   function queue() {
     if (pending) return;
     pending = true;
     queueMicrotask(() => {
       pending = false;
-      setup()
-    })
+      setup();
+    });
   }
   new MutationObserver(queue).observe(document.body, {
     childList: true,
