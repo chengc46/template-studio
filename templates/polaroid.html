@@ -3,919 +3,918 @@
   <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>仿拍立得卡片生成工具</title>
     <style>
-:root {
-  --bg: #f4f7fb;
-  --panel: #fff;
-  --ink: #1f2937;
-  --muted: #6b7280;
-  --line: #d9e1ea;
-}
+      :root {
+        --bg: #f4f7fb;
+        --panel: #fff;
+        --ink: #1f2937;
+        --muted: #6b7280;
+        --line: #d9e1ea;
+      }
 
-* {
-  box-sizing: border-box
-}
+      * {
+        box-sizing: border-box
+      }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--ink)
-}
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink)
+      }
 
-header {
-  padding: 16px 22px;
-  background: #243746;
-  color: #fff
-}
+      header {
+        padding: 16px 22px;
+        background: #243746;
+        color: #fff
+      }
 
-header h1 {
-  font-size: 20px;
-  margin: 0
-}
+      header h1 {
+        font-size: 20px;
+        margin: 0
+      }
 
-header p {
-  font-size: 13px;
-  margin: 6px 0 0;
-  color: #cbd5e1
-}
+      header p {
+        font-size: 13px;
+        margin: 6px 0 0;
+        color: #cbd5e1
+      }
 
-.app {
-  display: grid;
-  grid-template-columns: 370px 1fr;
-  gap: 18px;
-  padding: 18px;
-  align-items: stretch;
-  min-height: calc(100vh - 92px)
-}
+      .app {
+        display: grid;
+        grid-template-columns: 370px 1fr;
+        gap: 18px;
+        padding: 18px;
+        align-items: stretch;
+        min-height: calc(100vh - 92px)
+      }
 
-aside,
-main {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 16px;
-  height: calc(100vh - 92px);
-  min-height: 980px
-}
+      aside,
+      main {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        height: calc(100vh - 92px);
+        min-height: 980px
+      }
 
-aside {
-  overflow: auto
-}
+      aside {
+        overflow: auto
+      }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  justify-content: flex-start
-}
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        position: relative;
+        justify-content: flex-start
+      }
 
-.tabs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 14px
-}
+      .tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 14px
+      }
 
-.previewTop {
-  width: min(100%, 480px);
-  display: flex;
-  align-items: center;
-  gap: 8px
-}
+      .previewTop {
+        width: min(100%, 480px);
+        display: flex;
+        align-items: center;
+        gap: 8px
+      }
 
-.previewTop .tabs {
-  flex: 1;
-  margin-bottom: 0
-}
+      .previewTop .tabs {
+        flex: 1;
+        margin-bottom: 0
+      }
 
-.sizeBtn {
-  width: auto;
-  white-space: nowrap
-}
+      .sizeBtn {
+        width: auto;
+        white-space: nowrap
+      }
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, .45);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 20
-}
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, .45);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 20
+      }
 
-.modalBox {
-  width: min(92vw, 520px);
-  background: #fff;
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, .25)
-}
+      .modalBox {
+        width: min(92vw, 520px);
+        background: #fff;
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, .25)
+      }
 
-.modalBox h2 {
-  font-size: 18px
-}
+      .modalBox h2 {
+        font-size: 18px
+      }
 
-.modalBox pre {
-  white-space: pre-wrap;
-  background: #f8fafc;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 12px;
-  line-height: 1.65;
-  font-size: 13px
-}
+      .modalBox pre {
+        white-space: pre-wrap;
+        background: #f8fafc;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+        line-height: 1.65;
+        font-size: 13px
+      }
 
-button {
-  border: 0;
-  border-radius: 10px;
-  padding: 10px 12px;
-  background: #e5edf5;
-  cursor: pointer;
-  font-weight: 700
-}
+      button {
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 12px;
+        background: #e5edf5;
+        cursor: pointer;
+        font-weight: 700
+      }
 
-button.primary,
-button.active {
-  background: #315b70;
-  color: white
-}
+      button.primary,
+      button.active {
+        background: #315b70;
+        color: white
+      }
 
-button.warn {
-  background: #f59e0b;
-  color: white
-}
+      button.warn {
+        background: #f59e0b;
+        color: white
+      }
 
-button.small {
-  padding: 7px 9px;
-  font-size: 12px
-}
+      button.small {
+        padding: 7px 9px;
+        font-size: 12px
+      }
 
-section {
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-  margin-top: 14px
-}
+      section {
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+        margin-top: 14px
+      }
 
-section:first-of-type {
-  border-top: 0;
-  padding-top: 0;
-  margin-top: 0
-}
+      section:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+        margin-top: 0
+      }
 
-.controlGroup {
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-  margin-top: 14px
-}
+      .controlGroup {
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+        margin-top: 14px
+      }
 
-.controlGroup:first-of-type {
-  border-top: 0;
-  padding-top: 0;
-  margin-top: 0
-}
+      .controlGroup:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+        margin-top: 0
+      }
 
-.sectionHead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px
-}
+      .sectionHead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px
+      }
 
-.sectionHead h2 {
-  margin: 0
-}
+      .sectionHead h2 {
+        margin: 0
+      }
 
-.collapseBtn {
-  flex: 0 0 auto;
-  padding: 6px 10px;
-  font-size: 12px
-}
+      .collapseBtn {
+        flex: 0 0 auto;
+        padding: 6px 10px;
+        font-size: 12px
+      }
 
-h2 {
-  font-size: 15px;
-  margin: 0 0 10px
-}
+      h2 {
+        font-size: 15px;
+        margin: 0 0 10px
+      }
 
-label {
-  display: block;
-  font-size: 13px;
-  color: #374151;
-  margin: 10px 0 5px
-}
+      label {
+        display: block;
+        font-size: 13px;
+        color: #374151;
+        margin: 10px 0 5px
+      }
 
-input[type=text],
-select {
-  width: 100%;
-  padding: 9px 10px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: white
-}
+      input[type=text],
+      select {
+        width: 100%;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: white
+      }
 
-input[type=color] {
-  width: 54px;
-  height: 34px;
-  padding: 2px;
-  border: 1px solid var(--line);
-  border-radius: 8px
-}
+      input[type=color] {
+        width: 54px;
+        height: 34px;
+        padding: 2px;
+        border: 1px solid var(--line);
+        border-radius: 8px
+      }
 
-input[type=range] {
-  width: 100%
-}
+      input[type=range] {
+        width: 100%
+      }
 
-.rangeControl {
-  display: flex;
-  flex-direction: column;
-  gap: 4px
-}
+      .rangeControl {
+        display: flex;
+        flex-direction: column;
+        gap: 4px
+      }
 
-.rangeHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin: 10px 0 5px
-}
+      .rangeHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin: 10px 0 5px
+      }
 
-.rangeHeader label {
-  margin: 0;
-  flex: 1
-}
+      .rangeHeader label {
+        margin: 0;
+        flex: 1
+      }
 
-.rangeValueInput {
-  flex: 0 0 86px;
-  width: 86px;
-  padding: 6px 8px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  text-align: center;
-  font-size: 12px
-}
+      .rangeValueInput {
+        flex: 0 0 86px;
+        width: 86px;
+        padding: 6px 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        text-align: center;
+        font-size: 12px
+      }
 
-.rangeHint {
-  display: none;
-  font-size: 12px;
-  color: #9ca3af;
-  min-height: 16px
-}
+      .rangeHint {
+        display: none;
+        font-size: 12px;
+        color: #9ca3af;
+        min-height: 16px
+      }
 
-.rangeControl.showHint .rangeHint {
-  display: block
-}
+      .rangeControl.showHint .rangeHint {
+        display: block
+      }
 
-.lockedControl {
-  opacity: .55
-}
+      .lockedControl {
+        opacity: .55
+      }
 
-.lockedControl input {
-  pointer-events: none;
-  cursor: not-allowed
-}
+      .lockedControl input {
+        pointer-events: none;
+        cursor: not-allowed
+      }
 
-.lockedControl button,
-button.lockedControl {
-  cursor: not-allowed
-}
+      .lockedControl button,
+      button.lockedControl {
+        cursor: not-allowed
+      }
 
-.lockedControl .rangeValueInput {
-  background: #f3f4f6
-}
+      .lockedControl .rangeValueInput {
+        background: #f3f4f6
+      }
 
-.disabledHint {
-  font-size: 12px;
-  color: #9ca3af;
-  margin-top: 4px
-}
+      .disabledHint {
+        font-size: 12px;
+        color: #9ca3af;
+        margin-top: 4px
+      }
 
-.row {
-  display: flex;
-  gap: 8px;
-  align-items: center
-}
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: center
+      }
 
-.row>* {
-  flex: 1
-}
+      .row>* {
+        flex: 1
+      }
 
-.check {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  color: #374151;
-  font-size: 13px
-}
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        color: #374151;
+        font-size: 13px
+      }
 
-.check input {
-  width: auto
-}
+      .check input {
+        width: auto
+      }
 
-section label {
-  margin-top: 12px
-}
+      section label {
+        margin-top: 12px
+      }
 
-section button.small {
-  margin-top: 8px
-}
+      section button.small {
+        margin-top: 8px
+      }
 
-section input[type=file],
-section select,
-section .row,
-section .rangeControl {
-  margin-bottom: 10px
-}
+      section input[type=file],
+      section select,
+      section .row,
+      section .rangeControl {
+        margin-bottom: 10px
+      }
 
-section .check {
-  margin-bottom: 8px
-}
+      section .check {
+        margin-bottom: 8px
+      }
 
-.hint {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5
-}
+      .hint {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5
+      }
 
-canvas {
-  width: min(100%, 480px);
-  height: auto;
-  background: #ddd;
-  border-radius: 0;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, .18)
-}
+      canvas {
+        width: min(100%, 480px);
+        height: auto;
+        background: #ddd;
+        border-radius: 0;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, .18)
+      }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center
-}
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center
+      }
 
-footer {
-  padding: 0 18px 18px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px
-}
+      footer {
+        padding: 0 18px 18px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px
+      }
 
-@media(max-width:860px) {
-  .app {
-    grid-template-columns: 1fr
-  }
+      @media(max-width:860px) {
+        .app {
+          grid-template-columns: 1fr
+        }
 
-  aside,
-  main {
-    height: auto;
-    min-height: 0
-  }
-}
-
-</style>
+        aside,
+        main {
+          height: auto;
+          min-height: 0
+        }
+      }
+    
+    </style>
     <style id="unified-ui">
-:root {
-  --bg: #f4f7fb;
-  --panel: #fff;
-  --ink: #1f2937;
-  --muted: #6b7280;
-  --line: #d9e1ea;
-  --accent: #315b70
-}
+      :root {
+        --bg: #f4f7fb;
+        --panel: #fff;
+        --ink: #1f2937;
+        --muted: #6b7280;
+        --line: #d9e1ea;
+        --accent: #315b70
+      }
 
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin: 0
-}
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0
+      }
 
-body>header {
-  display: none
-}
+      body>header {
+        display: none
+      }
 
-button {
-  border: 0;
-  border-radius: 10px;
-  background: #e5edf5;
-  color: #243746;
-  font-weight: 700;
-  padding: 10px 12px
-}
+      button {
+        border: 0;
+        border-radius: 10px;
+        background: #e5edf5;
+        color: #243746;
+        font-weight: 700;
+        padding: 10px 12px
+      }
 
-button:hover {
-  background: #d7e5ef
-}
+      button:hover {
+        background: #d7e5ef
+      }
 
-button.primary,
-button.active,
-.primary {
-  background: #315b70;
-  color: #fff
-}
+      button.primary,
+      button.active,
+      .primary {
+        background: #315b70;
+        color: #fff
+      }
 
-button.primary:hover,
-.primary:hover {
-  background: #26495c
-}
+      button.primary:hover,
+      .primary:hover {
+        background: #26495c
+      }
 
-input,
-select,
-textarea {
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  color: #1f2937;
-  background: #fff
-}
+      input,
+      select,
+      textarea {
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        color: #1f2937;
+        background: #fff
+      }
 
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-button:focus-visible {
-  outline: 2px solid #5d97b3;
-  outline-offset: 2px
-}
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible,
+      button:focus-visible {
+        outline: 2px solid #5d97b3;
+        outline-offset: 2px
+      }
 
-input[type=range] {
-  accent-color: #315b70
-}
+      input[type=range] {
+        accent-color: #315b70
+      }
 
-input[type=checkbox] {
-  accent-color: #315b70
-}
+      input[type=checkbox] {
+        accent-color: #315b70
+      }
 
-label {
-  color: #374151
-}
+      label {
+        color: #374151
+      }
 
-h2 {
-  color: #243746
-}
+      h2 {
+        color: #243746
+      }
 
-footer {
-  font-size: 12px;
-  color: #6b7280
-}
+      footer {
+        font-size: 12px;
+        color: #6b7280
+      }
 
-.help,
-.hint,
-.muted {
-  color: #6b7280
-}
+      .help,
+      .hint,
+      .muted {
+        color: #6b7280
+      }
 
-.panel {
-  border: 1px solid var(--line);
-  background: white;
-  border-radius: 16px
-}
+      .panel {
+        border: 1px solid var(--line);
+        background: white;
+        border-radius: 16px
+      }
 
-.badge {
-  color: #315b70;
-  border-color: #d9e1ea
-}
+      .badge {
+        color: #315b70;
+        border-color: #d9e1ea
+      }
 
-</style>
+    </style>
     <style>
-.app {
-  padding: 18px;
-  gap: 18px;
-  min-height: 0;
-  grid-template-columns: 370px minmax(0, 1fr)
-}
+      .app {
+        padding: 18px;
+        gap: 18px;
+        min-height: 0;
+        grid-template-columns: 370px minmax(0, 1fr)
+      }
 
-.app>aside,
-.app>main {
-  height: calc(100vh - 66px);
-  min-height: 0
-}
+      .app>aside,
+      .app>main {
+        height: calc(100vh - 66px);
+        min-height: 0
+      }
 
-.app>aside {
-  overflow: auto;
-  scrollbar-width: thin
-}
+      .app>aside {
+        overflow: auto;
+        scrollbar-width: thin
+      }
 
-.app>main {
-  overflow: auto;
-  justify-content: flex-start;
-  padding: 22px
-}
+      .app>main {
+        overflow: auto;
+        justify-content: flex-start;
+        padding: 22px
+      }
 
-.app canvas {
-  width: min(100%, 440px);
-  flex-shrink: 0
-}
+      .app canvas {
+        width: min(100%, 440px);
+        flex-shrink: 0
+      }
 
-.app>main .hint {
-  max-width: 560px;
-  text-align: center
-}
+      .app>main .hint {
+        max-width: 560px;
+        text-align: center
+      }
 
-.app .actions {
-  flex-shrink: 0
-}
+      .app .actions {
+        flex-shrink: 0
+      }
 
-body>footer {
-  padding: 0 18px 10px
-}
+      body>footer {
+        padding: 0 18px 10px
+      }
 
-@media(max-width:860px) {
-  .app {
-    grid-template-columns: 1fr
-  }
+      @media(max-width:860px) {
+        .app {
+          grid-template-columns: 1fr
+        }
 
-  .app>aside,
-  .app>main {
-    height: auto;
-    min-height: 0
-  }
+        .app>aside,
+        .app>main {
+          height: auto;
+          min-height: 0
+        }
 
-  .app>main {
-    order: -1
-  }
+        .app>main {
+          order: -1
+        }
 
-  .app canvas {
-    width: min(100%, 330px)
-  }
-}
+        .app canvas {
+          width: min(100%, 330px)
+        }
+      }
 
-</style>
+    </style>
     <style id="flat-workspace-v2">
-:root {
-  --bg: #f4f7fb;
-  --panel: #fff;
-  --ink: #1f2937;
-  --muted: #6b7280;
-  --line: #d9e1ea;
-  --accent: #315b70
-}
+      :root {
+        --bg: #f4f7fb;
+        --panel: #fff;
+        --ink: #1f2937;
+        --muted: #6b7280;
+        --line: #d9e1ea;
+        --accent: #315b70
+      }
 
-body {
-  background: #f4f7fb;
-  color: #1f2937
-}
+      body {
+        background: #f4f7fb;
+        color: #1f2937
+      }
 
-body>header,
-body>footer {
-  display: none !important
-}
+      body>header,
+      body>footer {
+        display: none !important
+      }
 
-*,
-*::before,
-*::after {
-  box-shadow: none !important;
-  text-shadow: none !important
-}
+      *,
+      *::before,
+      *::after {
+        box-shadow: none !important;
+        text-shadow: none !important
+      }
 
-button,
-input,
-select,
-textarea,
-details,
-.tabs,
-.board,
-.panel,
-.preview-area,
-.modalBox {
-  border-radius: 0 !important
-}
+      button,
+      input,
+      select,
+      textarea,
+      details,
+      .tabs,
+      .board,
+      .panel,
+      .preview-area,
+      .modalBox {
+        border-radius: 0 !important
+      }
 
-button {
-  background: #e5edf5;
-  color: #243746
-}
+      button {
+        background: #e5edf5;
+        color: #243746
+      }
 
-button.primary,
-button.active,
-.primary {
-  background: #315b70;
-  color: white
-}
+      button.primary,
+      button.active,
+      .primary {
+        background: #315b70;
+        color: white
+      }
 
-button:hover {
-  background: #d6e4ee
-}
+      button:hover {
+        background: #d6e4ee
+      }
 
-canvas {
-  box-shadow: none !important;
-  filter: none !important
-}
+      canvas {
+        box-shadow: none !important;
+        filter: none !important
+      }
 
-input[type=range],
-input[type=checkbox] {
-  accent-color: #315b70
-}
+      input[type=range],
+      input[type=checkbox] {
+        accent-color: #315b70
+      }
 
-</style>
+    </style>
     <style>
-.app {
-  grid-template-columns: 380px minmax(0, 1fr);
-  gap: 0;
-  padding: 24px;
-  min-height: 0;
-  height: 100vh;
-  align-items: stretch
-}
+      .app {
+        grid-template-columns: 380px minmax(0, 1fr);
+        gap: 0;
+        padding: 24px;
+        min-height: 0;
+        height: 100vh;
+        align-items: stretch
+      }
 
-.app>aside,
-.app>main {
-  height: 100%;
-  min-height: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0
-}
+      .app>aside,
+      .app>main {
+        height: 100%;
+        min-height: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        padding: 0
+      }
 
-.app>aside {
-  padding-right: 24px;
-  overflow: auto;
-  scrollbar-width: thin
-}
+      .app>aside {
+        padding-right: 24px;
+        overflow: auto;
+        scrollbar-width: thin
+      }
 
-.app>main {
-  padding-left: 24px;
-  border-left: 1px solid #d9e1ea;
-  overflow: auto;
-  gap: 14px
-}
+      .app>main {
+        padding-left: 24px;
+        border-left: 1px solid #d9e1ea;
+        overflow: auto;
+        gap: 14px
+      }
 
-.tabs {
-  gap: 0;
-  border-bottom: 1px solid #d9e1ea
-}
+      .tabs {
+        gap: 0;
+        border-bottom: 1px solid #d9e1ea
+      }
 
-.tabs button {
-  background: transparent;
-  border-bottom: 2px solid transparent;
-  color: #6b7280
-}
+      .tabs button {
+        background: transparent;
+        border-bottom: 2px solid transparent;
+        color: #6b7280
+      }
 
-.tabs button.active {
-  background: transparent;
-  color: #315b70;
-  border-bottom-color: #315b70
-}
+      .tabs button.active {
+        background: transparent;
+        color: #315b70;
+        border-bottom-color: #315b70
+      }
 
-.app canvas {
-  width: min(100%, 440px);
-  height: auto;
-  flex-shrink: 0
-}
+      .app canvas {
+        width: min(100%, 440px);
+        height: auto;
+        flex-shrink: 0
+      }
 
-.modal {
-  background: #24374670
-}
+      .modal {
+        background: #24374670
+      }
 
-@media(max-width:900px) {
-  .app {
-    height: auto;
-    grid-template-columns: 1fr;
-    padding: 18px
-  }
+      @media(max-width:900px) {
+        .app {
+          height: auto;
+          grid-template-columns: 1fr;
+          padding: 18px
+        }
 
-  .app>aside,
-  .app>main {
-    height: auto;
-    min-height: 0
-  }
+        .app>aside,
+        .app>main {
+          height: auto;
+          min-height: 0
+        }
 
-  .app>aside {
-    padding: 0 0 24px
-  }
+        .app>aside {
+          padding: 0 0 24px
+        }
 
-  .app>main {
-    order: 0;
-    padding: 24px 0 0;
-    border-left: 0;
-    border-top: 1px solid #d9e1ea
-  }
+        .app>main {
+          order: 0;
+          padding: 24px 0 0;
+          border-left: 0;
+          border-top: 1px solid #d9e1ea
+        }
 
-  .app canvas {
-    width: min(100%, 330px)
-  }
-}
+        .app canvas {
+          width: min(100%, 330px)
+        }
+      }
 
-</style>
+    </style>
     <style id="equal-panels-v4-head">
-html,
-body {
-  height: 100% !important;
-  overflow: hidden !important
-}
+      html,
+      body {
+        height: 100% !important;
+        overflow: hidden !important
+      }
 
-.app,
-.workspace,
-body>main.workspace {
-  height: 100vh !important;
-  min-height: 0 !important;
-  align-items: stretch !important;
-  grid-template-columns: 380px minmax(0, 1fr) !important;
-  padding: 20px 24px !important
-}
+      .app,
+      .workspace,
+      body>main.workspace {
+        height: 100vh !important;
+        min-height: 0 !important;
+        align-items: stretch !important;
+        grid-template-columns: 380px minmax(0, 1fr) !important;
+        padding: 20px 24px !important
+      }
 
-.app>aside,
-body>main.workspace>aside,
-.workspace>.controls,
-body>main.workspace>section:first-child {
-  height: 100% !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  contain: none !important;
-  padding: 0 24px 0 0 !important;
-  scrollbar-width: thin;
-  overscroll-behavior: contain
-}
+      .app>aside,
+      body>main.workspace>aside,
+      .workspace>.controls,
+      body>main.workspace>section:first-child {
+        height: 100% !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        contain: none !important;
+        padding: 0 24px 0 0 !important;
+        scrollbar-width: thin;
+        overscroll-behavior: contain
+      }
 
-.app>main,
-.workspace>.preview-area {
-  height: 100% !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  overflow: hidden !important;
-  padding: 0 0 0 24px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important
-}
+      .app>main,
+      .workspace>.preview-area {
+        height: 100% !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
+        overflow: hidden !important;
+        padding: 0 0 0 24px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important
+      }
 
-.previewViewport {
-  width: 100%;
-  min-height: 0;
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden
-}
+      .previewViewport {
+        width: 100%;
+        min-height: 0;
+        flex: 1 1 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden
+      }
 
-.canvas-stage {
-  height: auto !important;
-  flex: 1 1 0 !important;
-  min-height: 0 !important;
-  width: 100% !important;
-  display: flex !important;
-  overflow: hidden !important
-}
+      .canvas-stage {
+        height: auto !important;
+        flex: 1 1 0 !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        overflow: hidden !important
+      }
 
-.canvas-stage>.previewViewport {
-  height: 100%
-}
+      .canvas-stage>.previewViewport {
+        height: 100%
+      }
 
-.app canvas,
-.workspace canvas {
-  width: var(--preview-w, auto) !important;
-  height: auto !important;
-  max-width: none !important;
-  max-height: none !important;
-  flex: 0 0 auto !important
-}
+      .app canvas,
+      .workspace canvas {
+        width: var(--preview-w, auto) !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
+        flex: 0 0 auto !important
+      }
 
-.previewZoom,
-.previewTools,
-.dimensions,
-#status,
-.exports,
-.footnote {
-  flex-shrink: 0 !important
-}
+      .previewZoom,
+      .previewTools,
+      .dimensions,
+      #status,
+      .exports,
+      .footnote {
+        flex-shrink: 0 !important
+      }
 
-.previewTools {
-  position: relative !important;
-  min-height: 30px !important;
-  margin: 0 !important;
-  justify-content: flex-end !important
-}
+      .previewTools {
+        position: relative !important;
+        min-height: 30px !important;
+        margin: 0 !important;
+        justify-content: flex-end !important
+      }
 
-.previewTools #sizeBtn {
-  position: static !important;
-  margin-left: auto !important;
-  align-self: flex-end !important
-}
+      .previewTools #sizeBtn {
+        position: static !important;
+        margin-left: auto !important;
+        align-self: flex-end !important
+      }
 
-.previewZoom {
-  min-height: 30px;
-  justify-content: center;
-  width: 100%
-}
+      .previewZoom {
+        min-height: 30px;
+        justify-content: center;
+        width: 100%
+      }
 
-.previewZoom button {
-  white-space: nowrap
-}
+      .previewZoom button {
+        white-space: nowrap
+      }
 
-.workspace .exports {
-  margin-top: 0 !important;
-  gap: 6px !important
-}
+      .workspace .exports {
+        margin-top: 0 !important;
+        gap: 6px !important
+      }
 
-.workspace .exports button {
-  padding: 9px 7px !important
-}
+      .workspace .exports button {
+        padding: 9px 7px !important
+      }
 
-.workspace .footnote {
-  font-size: 10px !important;
-  line-height: 1.45 !important
-}
+      .workspace .footnote {
+        font-size: 10px !important;
+        line-height: 1.45 !important
+      }
 
-.dimensions {
-  padding: 0 !important
-}
+      .dimensions {
+        padding: 0 !important
+      }
 
-.group>summary {
-  display: list-item !important;
-  list-style: disclosure-closed !important
-}
+      .group>summary {
+        display: list-item !important;
+        list-style: disclosure-closed !important
+      }
 
-.group[open]>summary {
-  list-style: disclosure-open !important
-}
+      .group[open]>summary {
+        list-style: disclosure-open !important
+      }
 
-#generalContent {
-  display: block !important
-}
+      #generalContent {
+        display: block !important
+      }
 
-.tabs {
-  flex-shrink: 0
-}
+      .tabs {
+        flex-shrink: 0
+      }
 
-@media(max-width:900px) {
+      @media(max-width:900px) {
 
-  .app,
-  .workspace,
-  body>main.workspace {
-    grid-template-columns: minmax(220px, 38%) minmax(0, 1fr) !important;
-    padding: 14px !important
-  }
+        .app,
+        .workspace,
+        body>main.workspace {
+          grid-template-columns: minmax(220px, 38%) minmax(0, 1fr) !important;
+          padding: 14px !important
+        }
 
-  .app>aside,
-  body>main.workspace>aside,
-  .workspace>.controls {
-    padding: 0 14px 0 0 !important
-  }
+        .app>aside,
+        body>main.workspace>aside,
+        .workspace>.controls {
+          padding: 0 14px 0 0 !important
+        }
 
-  .app>main,
-  .workspace>.preview-area {
-    border-top: 0 !important;
-    border-left: 1px solid #d9e1ea !important;
-    padding: 0 0 0 14px !important
-  }
+        .app>main,
+        .workspace>.preview-area {
+          border-top: 0 !important;
+          border-left: 1px solid #d9e1ea !important;
+          padding: 0 0 0 14px !important
+        }
 
-  .previewZoom input[type=range] {
-    width: 75px
-  }
+        .previewZoom input[type=range] {
+          width: 75px
+        }
 
-  .workspace .exports {
-    grid-template-columns: 1fr 1fr !important
-  }
-}
+        .workspace .exports {
+          grid-template-columns: 1fr 1fr !important
+        }
+      }
 
-@media(max-width:540px) {
+      @media(max-width:540px) {
 
-  .app,
-  .workspace,
-  body>main.workspace {
-    grid-template-columns: minmax(160px, 46%) minmax(0, 1fr) !important;
-    padding: 8px !important
-  }
+        .app,
+        .workspace,
+        body>main.workspace {
+          grid-template-columns: minmax(160px, 46%) minmax(0, 1fr) !important;
+          padding: 8px !important
+        }
 
-  .app>aside,
-  body>main.workspace>aside,
-  .workspace>.controls {
-    padding-right: 8px !important
-  }
+        .app>aside,
+        body>main.workspace>aside,
+        .workspace>.controls {
+          padding-right: 8px !important
+        }
 
-  .app>main,
-  .workspace>.preview-area {
-    padding-left: 8px !important
-  }
+        .app>main,
+        .workspace>.preview-area {
+          padding-left: 8px !important
+        }
 
-  .previewZoom {
-    gap: 5px
-  }
+        .previewZoom {
+          gap: 5px
+        }
 
-  .previewZoom input[type=range] {
-    width: 60px
-  }
+        .previewZoom input[type=range] {
+          width: 60px
+        }
 
-  .previewZoom input[type=number] {
-    width: 52px
-  }
+        .previewZoom input[type=number] {
+          width: 52px
+        }
 
-  .previewTools label {
-    font-size: 10px
-  }
+        .previewTools label {
+          font-size: 10px
+        }
 
-  .workspace .exports button {
-    font-size: 10px !important
-  }
-}
+        .workspace .exports button {
+          font-size: 10px !important
+        }
+      }
 
-</style>
+    </style>
   </head>
   <body>
     <style id="whole-page-v3">
@@ -1247,37 +1246,41 @@ button {
 }
 
 </style>
-    <header>
-      <h1>仿拍立得卡片生成工具</h1>
-      <p>上传角色图片，编辑正反面信息，导出拍立得卡片和烫金层。</p>
-    </header>
     <div class="app">
       <aside>
         <details class="group" id="generalSection" open="">
           <summary>通用设置</summary>
           <div id="generalContent">
             <div class="check">
-              <input id="showOutline" type="checkbox"/><span>显示轮廓线，并包含在导出图中</span></div><label>轮廓线宽度</label>
-            <input id="outlineW" max="1129" min="1" type="range" value="897"/><label>轮廓线高度</label>
-            <input id="outlineH" max="1665" min="1" type="range" value="1433"/>
-            <div class="row">
-              <div><label>轮廓线 X 位置</label>
-                <input id="outlineX" max="232" min="0" type="range" value="117"/>
-              </div>
-              <div><label>轮廓线 Y 位置</label>
-                <input id="outlineY" max="232" min="0" type="range" value="118"/>
-              </div>
+              <input checked="" id="syncBg" type="checkbox"/><span>背景保持一致</span>
             </div>
-            <div class="row"><button class="small" id="centerOutline" type="button">轮廓线居中</button><button class="small" id="resetOutline" type="button">重置轮廓线</button></div>
             <div class="check">
-              <input checked="" id="syncBg" type="checkbox"/><span>正面背景和背面背景保持一致</span></div>
+              <input checked="" id="syncPath" type="checkbox"/><span>图标保持一致</span>
+            </div>
             <div class="check">
-              <input checked="" id="syncPath" type="checkbox"/><span>正面命途和背面命途保持一致</span></div>
-            <div class="check">
-              <input checked="" id="syncIP" type="checkbox"/><span>正面 IP 名和背面顶部标题保持一致</span></div><label>底部颜色</label>
-            <div class="row">
-              <input id="bottomColor" type="color" value="#73a9c7"/>
-              <input id="bottomHex" type="text" value="#73a9c7"/>
+              <input checked="" id="syncIP" type="checkbox"/><span>标题保持一致</span>
+            </div>
+            <div class="componentHead"><strong>参考线</strong></div>
+            <div>
+              <div class="check">
+                <input id="showOutline" type="checkbox"/><span>显示参考线，并包含在导出图中</span>
+              </div>
+              <label>宽度</label>
+              <input id="outlineW" max="1129" min="1" type="range" value="897"/>
+              <label>高度</label>
+              <input id="outlineH" max="1665" min="1" type="range" value="1433"/>
+              <div class="row">
+                <div><label>X 位置</label>
+                  <input id="outlineX" max="232" min="0" type="range" value="117"/>
+                </div>
+                <div><label>Y 位置</label>
+                  <input id="outlineY" max="232" min="0" type="range" value="118"/>
+                </div>
+              </div>
+              <div class="row">
+                <button class="small" id="centerOutline" type="button">居中</button>
+                <button class="small" id="resetOutline" type="button">重置</button>
+              </div>
             </div>
           </div>
         </details>
@@ -1287,8 +1290,9 @@ button {
             <summary>主图</summary>
             <div class="groupBody">
               <div class="component mainImageComponent">
-                <div class="componentHead"><strong>主图</strong><button aria-label="隐藏主图" aria-pressed="false" class="eye" data-eye="mainImage" type="button"></button></div><label>上传主图</label>
-                <input accept="image/*" id="charUpload" type="file"/><label>缩放 / %</label>
+                <div class="componentHead"><strong>主图</strong><button aria-label="隐藏主图" aria-pressed="false" class="eye" data-eye="mainImage" type="button"></button></div>
+                <label>上传主图</label>
+                <input accept="image/*" id="charUpload" type="file"/><label>缩放</label>
                 <input id="charScale" max="240" min="20" type="range" value="100"/>
                 <div class="row">
                   <div><label>水平位置</label>
@@ -1297,18 +1301,31 @@ button {
                   <div><label>垂直位置</label>
                     <input id="charY" max="700" min="-700" type="range" value="0"/>
                   </div>
-                </div><label>不透明度 / %</label>
+                </div><label>不透明度</label>
                 <input id="mainImageAlpha" max="100" min="0" step="1" type="range" value="100"/>
-                <div class="fiveButtons"><button id="fitCharHeight">适应高度</button><button id="fitCharWidth">适应宽度</button><button class="small" id="centerChar">居中</button><button id="resetMainImage">重置</button><button id="removeMainImage">移除</button></div>
+                <div class="fiveButtons">
+                  <button id="fitCharHeight">适应高度</button>
+                  <button id="fitCharWidth">适应宽度</button>
+                  <button id="centerChar">居中</button>
+                  <button id="resetMainImage">重置</button>
+                  <button id="removeMainImage">移除</button>
+                </div>
               </div>
               <div class="component mainBackgroundComponent">
-                <div class="componentHead"><strong>主图背景</strong><button aria-label="隐藏主图背景" aria-pressed="false" class="eye" data-eye="mainBg" type="button"></button></div><label class="check">
-                  <input id="useCharSolidBg" type="checkbox"/>启用</label><label>颜色</label>
+                <div class="componentHead">
+                  <strong>主图背景</strong>
+                  <label class="check"><input id="useCharSolidBg" type="checkbox"/>启用</label>
+                  <button aria-label="隐藏主图背景" aria-pressed="false" class="eye" data-eye="mainBg" type="button"></button>
+                </div>
+                
                 <div class="row">
+                  <label>颜色</label>
                   <input id="charBgColor" type="color" value="#ffffff"/>
                   <input id="charBgHex" type="text" value="#ffffff"/>
-                </div><label>上传自定义背景</label>
-                <input accept="image/*" id="charBgUpload" type="file"/><label>缩放 / %</label>
+                </div>
+                <label>上传自定义主图背景</label>
+                <input accept="image/*" id="charBgUpload" type="file"/>
+                <label>缩放</label>
                 <input id="charBgScale" max="5000" min="0.1" step="0.1" type="range" value="100"/>
                 <div class="row">
                   <div><label>水平位置</label>
@@ -1317,9 +1334,15 @@ button {
                   <div><label>垂直位置</label>
                     <input id="charBgY" max="1665" min="-1665" step="1" type="range" value="0"/>
                   </div>
-                </div><label>不透明度 / %</label>
+                </div><label>不透明度</label>
                 <input id="mainBgAlpha" max="100" min="0" step="1" type="range" value="100"/>
-                <div class="fiveButtons"><button id="centerMainBg" type="button">居中</button><button id="fitMainBgHeight" type="button">适应高度</button><button id="fitMainBgWidth" type="button">适应宽度</button><button id="resetMainBg" type="button">重置</button><button id="removeMainBg" type="button">移除</button></div>
+                <div class="fiveButtons">
+                  <button id="fitMainBgHeight" type="button">适应高度</button>
+                  <button id="fitMainBgWidth" type="button">适应宽度</button>
+                  <button id="centerMainBg" type="button">居中</button>
+                  <button id="resetMainBg" type="button">重置</button>
+                  <button id="removeMainBg" type="button">移除</button>
+                </div>
               </div>
             </div>
           </details>
@@ -1329,20 +1352,29 @@ button {
               <div class="component">
                 <div class="componentHead"><strong>暗纹</strong><button aria-label="隐藏暗纹" aria-pressed="false" class="eye" data-eye="frontTexture" type="button"></button></div>
                 <div class="check">
-                  <input checked="" id="showFrontTexture" type="checkbox"/><span>显示正面暗纹图层</span></div><label>上传自定义正面暗纹</label>
-                <input accept="image/*" id="frontTextureUpload" type="file"/><button class="small" id="useDefaultFrontTexture" type="button">使用默认暗纹</button>
-                <div class="hint disabledHint">使用默认暗纹时，仅可调整透明度；上传自定义暗纹后可调整大小和位置。</div><label>正面暗纹透明度</label>
-                <input id="frontTextureOpacity" max="100" min="0" type="range" value="100"/><label>正面暗纹大小</label>
+                  <input checked="" id="showFrontTexture" type="checkbox"/>
+                  <span>显示暗纹</span>
+                </div>
+                <div class="row">
+                  <div>
+                    <label>上传自定义暗纹</label>
+                    <input accept="image/*" id="frontTextureUpload" type="file"/>
+                  </div>
+                  <button class="small" id="useDefaultFrontTexture" type="button">使用默认</button>
+                </div>
+                <label>透明度</label>
+                <input id="frontTextureOpacity" max="100" min="0" type="range" value="100"/>
+                <label>缩放</label>
                 <input id="frontTextureScale" max="240" min="20" type="range" value="100"/>
                 <div class="row">
-                  <div><label>正面暗纹 X 位置</label>
+                  <div><label>水平位置</label>
                     <input id="frontTextureX" max="1129" min="-1129" type="range" value="0"/>
                   </div>
-                  <div><label>正面暗纹 Y 位置</label>
+                  <div><label>垂直位置</label>
                     <input id="frontTextureY" max="1665" min="-1665" type="range" value="0"/>
                   </div>
                 </div>
-                <div class="row"><button class="small" id="centerFrontTexture" type="button">正面暗纹居中</button></div>
+                <div class="row"><button class="small" id="centerFrontTexture" type="button">居中</button></div>
               </div>
             </div>
           </details>
@@ -1350,29 +1382,53 @@ button {
             <summary>文字</summary>
             <div class="groupBody">
               <div class="component">
-                <div class="componentHead"><strong>第一行文字</strong><button aria-label="隐藏第一行文字" aria-pressed="false" class="eye" data-eye="frontName" type="button"></button></div><label>文字</label>
+                <div class="componentHead"><strong>文字一</strong><button aria-label="隐藏第一行文字" aria-pressed="false" class="eye" data-eye="frontName" type="button"></button></div>
                 <div class="row">
-                  <input id="frontName" type="text" value="NAME"/><button class="small" id="resetName">重置</button></div><label>字体</label>
-                <select id="frontNameFont"><option value='Georgia, "Times New Roman", serif'>粗体衬线 / 原模板</option><option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体 / 无衬线</option><option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体 / 衬线</option><option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option><option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option><option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option></select>
-                <div class="textStyles"><label>
-                    <input checked="" id="frontNameBold" type="checkbox"/>加粗</label><label>
-                    <input id="frontNameStrike" type="checkbox"/>删除线</label><label>
-                    <input id="frontNameUnderline" type="checkbox"/>下划线</label></div><label>字号 / px</label>
-                <input id="frontNameSize" max="150" min="10" step="1" type="range" value="70"/><label>颜色</label>
-                <input id="frontNameColor" type="color" value="#e7ae13"/><label>不透明度 / %</label>
+                  <input id="frontName" type="text" value="NAME"/>
+                  <button id="resetName">重置</button>
+                </div>
+                <select id="frontNameFont">
+                  <option value='Georgia, "Times New Roman", serif'>粗体衬线</option>
+                  <option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体</option>
+                  <option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体</option>
+                  <option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option>
+                  <option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option>
+                  <option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option>
+                </select>
+                <div class="textStyles">
+                  <label><input checked="" id="frontNameBold" type="checkbox"/>加粗</label>
+                  <label><input id="frontNameStrike" type="checkbox"/>删除线</label>
+                  <label><input id="frontNameUnderline" type="checkbox"/>下划线</label>
+                </div>
+                <label>字号</label>
+                <input id="frontNameSize" max="150" min="10" step="1" type="range" value="70"/>
+                <label>颜色</label>
+                <input id="frontNameColor" type="color" value="#e7ae13"/>
+                <label>不透明度</label>
                 <input id="frontNameAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
               <div class="component">
-                <div class="componentHead"><strong>第二行文字</strong><button aria-label="隐藏第二行文字" aria-pressed="false" class="eye" data-eye="frontIP" type="button"></button></div><label>文字</label>
+                <div class="componentHead"><strong>文字二</strong><button aria-label="隐藏第二行文字" aria-pressed="false" class="eye" data-eye="frontIP" type="button"></button></div>
                 <div class="row">
-                  <input id="frontIP" type="text" value="HONKAI: STAR RAIL"/><button class="small" id="resetFrontIP">重置</button></div><label>字体</label>
-                <select id="frontIPFont"><option value='Georgia, "Times New Roman", serif'>粗体衬线 / 原模板</option><option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体 / 无衬线</option><option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体 / 衬线</option><option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option><option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option><option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option></select>
-                <div class="textStyles"><label>
-                    <input checked="" id="frontIPBold" type="checkbox"/>加粗</label><label>
-                    <input id="frontIPStrike" type="checkbox"/>删除线</label><label>
-                    <input id="frontIPUnderline" type="checkbox"/>下划线</label></div><label>字号 / px</label>
-                <input id="frontIPSize" max="120" min="8" step="1" type="range" value="39"/><label>颜色</label>
-                <input id="frontIPColor" type="color" value="#e7ae13"/><label>不透明度 / %</label>
+                  <input id="frontIP" type="text" value="HONKAI: STAR RAIL"/><button class="small" id="resetFrontIP">重置</button></div>
+                <select id="frontIPFont">
+                  <option value='Georgia, "Times New Roman", serif'>粗体衬线</option>
+                  <option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体</option>
+                  <option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体</option>
+                  <option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option>
+                  <option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option>
+                  <option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option>
+                </select>
+                <div class="textStyles">
+                  <label><input checked="" id="frontIPBold" type="checkbox"/>加粗</label>
+                  <label><input id="frontIPStrike" type="checkbox"/>删除线</label>
+                  <label><input id="frontIPUnderline" type="checkbox"/>下划线</label>
+                </div>
+                <label>字号</label>
+                <input id="frontIPSize" max="120" min="8" step="1" type="range" value="39"/>
+                <label>颜色</label>
+                <input id="frontIPColor" type="color" value="#e7ae13"/>
+                <label>不透明度</label>
                 <input id="frontIPAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
             </div>
@@ -1387,13 +1443,23 @@ button {
                 <input accept="image/*" id="frontPathUpload" type="file"/>
                 <input id="frontIconScale" type="hidden" value="100"/>
                 <input id="frontIconX" type="hidden" value="0"/>
-                <input id="frontIconY" type="hidden" value="0"/><label>颜色</label>
-                <input id="frontIconColor" type="color" value="#e7ae13"/><label>不透明度 / %</label>
+                <input id="frontIconY" type="hidden" value="0"/>
+                <label>颜色</label>
+                <div class="row">
+                  <input id="frontIconColor" type="color" value="#e7ae13"/>
+                  <input id="frontIconColor" type="text" value="#73a9c7"/>
+                </div>
+                <label>不透明度</label>
                 <input id="frontIconAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
               <div class="component">
-                <div class="componentHead"><strong>固定图标</strong><button aria-label="隐藏固定图标" aria-pressed="false" class="eye" data-eye="fixedIcon" type="button"></button></div><label>颜色</label>
-                <input id="fixedIconColor" type="color" value="#e7ae13"/><label>不透明度 / %</label>
+                <div class="componentHead"><strong>固定图标</strong><button aria-label="隐藏固定图标" aria-pressed="false" class="eye" data-eye="fixedIcon" type="button"></button></div>
+                <label>颜色</label>
+                <div class="row">
+                  <input id="fixedIconColor" type="color" value="#e7ae13"/>
+                  <input id="fixedIconColor" type="text" value="#73a9c7"/>
+                </div>
+                <label>不透明度</label>
                 <input id="fixedIconAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
             </div>
@@ -1402,11 +1468,12 @@ button {
             <summary>背景</summary>
             <div class="groupBody">
               <div class="component">
-                <div class="componentHead"><strong>渐变背景</strong><button aria-label="隐藏渐变背景" aria-pressed="false" class="eye" data-eye="frontBg" type="button"></button></div><label>正面渐变上方颜色</label>
+                <div class="componentHead"><strong>背景</strong><button aria-label="隐藏渐变背景" aria-pressed="false" class="eye" data-eye="frontBg" type="button"></button></div>
+                <label>上方颜色</label>
                 <div class="row">
                   <input id="frontTop" type="color" value="#000000"/>
                   <input id="frontTopHex" type="text" value="#000000"/>
-                </div><label>正面渐变下方颜色</label>
+                </div><label>下方颜色</label>
                 <div class="row">
                   <input id="frontBg" type="color" value="#315b70"/>
                   <input id="frontBgHex" type="text" value="#315b70"/>
@@ -1418,21 +1485,35 @@ button {
                   <div><label>下方颜色开始位置</label>
                     <input id="frontGradEnd" max="100" min="0" type="range" value="82"/>
                   </div>
-                </div><button class="small" id="resetFrontGradient">重置正面渐变范围</button><label>不透明度 / %</label>
+                </div><button class="small" id="resetFrontGradient">重置渐变范围</button>
+                <label>不透明度</label>
                 <input id="frontBgAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
               <div class="component">
-                <div class="componentHead"><strong>顶部花纹</strong><button aria-label="隐藏顶部花纹" aria-pressed="false" class="eye" data-eye="pattern" type="button"></button></div><label>颜色</label>
-                <input id="patternColor" type="color" value="#e7ae13"/><label>不透明度 / %</label>
+                <div class="componentHead">
+                  <strong>顶部花纹</strong>
+                  <button aria-label="隐藏顶部花纹" aria-pressed="false" class="eye" data-eye="pattern" type="button"></button>
+                </div>
+                <label>颜色</label>
+                <div class="row">
+                  <input id="patternColor" type="color" value="#e7ae13"/>
+                  <input id="patternColor" type="text" value="#73a9c7"/>
+                </div>
+                <label>不透明度</label>
                 <input id="patternAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
               <div class="component">
-                <div class="componentHead"><strong>底部色带</strong><button aria-label="隐藏底部色带" aria-pressed="false" class="eye" data-eye="bottomBg" type="button"></button></div><label>不透明度 / %</label>
+                <div class="componentHead">
+                  <strong>底部色带</strong>
+                  <button aria-label="隐藏底部色带" aria-pressed="false" class="eye" data-eye="bottomBg" type="button"></button>
+                </div>
+                <label>颜色</label>
+                <div class="row">
+                  <input id="bottomColor" type="color" value="#73a9c7"/>
+                  <input id="bottomHex" type="text" value="#73a9c7"/>
+                </div>
+                <label>不透明度</label>
                 <input id="bottomBgAlpha" max="100" min="0" step="1" type="range" value="100"/>
-              </div>
-              <div class="component">
-                <div class="componentHead"><strong>轮廓线</strong><button aria-label="隐藏轮廓线" aria-pressed="false" class="eye" data-eye="outline" type="button"></button></div><label>不透明度 / %</label>
-                <input id="outlineAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
             </div>
           </details>
@@ -1444,14 +1525,28 @@ button {
               <div class="component">
                 <div class="componentHead"><strong>顶部标题</strong><button aria-label="隐藏顶部标题" aria-pressed="false" class="eye" data-eye="backTitle" type="button"></button></div>
                 <div class="row">
-                  <input id="backTitle" type="text" value="HONKAI: STAR RAIL"/><button class="small" id="resetBackTitle">重置</button></div><label>字体</label>
-                <select id="backTitleFont"><option value='Georgia, "Times New Roman", serif'>粗体衬线 / 原模板</option><option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体 / 无衬线</option><option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体 / 衬线</option><option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option><option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option><option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option></select>
-                <div class="textStyles"><label>
-                    <input checked="" id="backTitleBold" type="checkbox"/>加粗</label><label>
-                    <input id="backTitleStrike" type="checkbox"/>删除线</label><label>
-                    <input id="backTitleUnderline" type="checkbox"/>下划线</label></div><label>字号 / px</label>
-                <input id="backTitleSize" max="120" min="8" step="1" type="range" value="39"/><label>颜色</label>
-                <input id="backTitleColor" type="color" value="#e7ae13"/><label>不透明度 / %</label>
+                  <input id="backTitle" type="text" value="HONKAI: STAR RAIL"/>
+                  <button class="small" id="resetBackTitle">重置</button>
+                </div>
+                <label>字体</label>
+                <select id="backTitleFont">
+                  <option value='Georgia, "Times New Roman", serif'>粗体衬线</option>
+                  <option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体</option>
+                  <option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体</option>
+                  <option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option>
+                  <option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option>
+                  <option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option>
+                </select>
+                <div class="textStyles">
+                  <label><input checked="" id="backTitleBold" type="checkbox"/>加粗</label>
+                  <label><input id="backTitleStrike" type="checkbox"/>删除线</label>
+                  <label><input id="backTitleUnderline" type="checkbox"/>下划线</label>
+                </div>
+                <label>字号</label>
+                <input id="backTitleSize" max="120" min="8" step="1" type="range" value="39"/>
+                <label>颜色</label>
+                <input id="backTitleColor" type="color" value="#e7ae13"/>
+                <label>不透明度</label>
                 <input id="backTitleAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
             </div>
@@ -1460,17 +1555,37 @@ button {
             <summary>图标</summary>
             <div class="groupBody">
               <div class="component">
-                <div class="componentHead"><strong>图标</strong><button aria-label="隐藏图标" aria-pressed="false" class="eye" data-eye="backIcon" type="button"></button></div><label>命途 / 图标</label>
+                <div class="componentHead"><strong>图标</strong>
+                  <button aria-label="隐藏图标" aria-pressed="false" class="eye" data-eye="backIcon" type="button"></button>
+                </div>
+                <label>图标</label>
                 <select id="backPath">
-                </select><label>上传自定义图标</label>
-                <input accept="image/*" id="backPathUpload" type="file"/><label>图标大小</label>
-                <input id="backIconScale" max="220" min="30" type="range" value="100"/><label>水平位置</label>
-                <input id="backIconX" max="700" min="-700" type="range" value="0"/><label>垂直位置</label>
-                <input id="backIconY" max="700" min="-700" type="range" value="0"/>
-                <div class="row"><button class="small" id="centerBackIcon">背面命途居中</button><button class="small" id="resetBackIconScale">重置背面命途大小</button></div><label>内部颜色</label>
-                <input id="backIconBlackColor" type="color" value="#e7ae13"/><label>内部不透明度 / %</label>
-                <input id="backIconBlackAlpha" max="100" min="0" type="range" value="100"/><label>外部颜色</label>
-                <input id="backIconGrayColor" type="color" value="#e7ae13"/><label>外部不透明度 / %</label>
+                </select>
+                <label>上传自定义图标</label>
+                <input accept="image/*" id="backPathUpload" type="file"/>
+                <label>缩放</label>
+                <input id="backIconScale" max="220" min="30" type="range" value="100"/>
+                <div class="row">
+                  <div>
+                    <label>水平位置</label>
+                    <input id="backIconX" max="700" min="-700" type="range" value="0"/>
+                  </div>
+                  <div>
+                  <label>垂直位置</label>
+                  <input id="backIconY" max="700" min="-700" type="range" value="0"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <button class="small" id="centerBackIcon">居中</button>
+                  <button class="small" id="resetBackIconScale">重置大小</button>
+                </div>
+                <label>内部颜色</label>
+                <input id="backIconBlackColor" type="color" value="#e7ae13"/>
+                <label>内部不透明度</label>
+                <input id="backIconBlackAlpha" max="100" min="0" type="range" value="100"/>
+                <label>外部颜色</label>
+                <input id="backIconGrayColor" type="color" value="#e7ae13"/>
+                <label>外部不透明度</label>
                 <input id="backIconGrayAlpha" max="100" min="0" type="range" value="100"/>
                 <input id="backIconAlpha" max="100" min="0" step="1" type="hidden" value="100"/>
               </div>
@@ -1480,15 +1595,20 @@ button {
             <summary>背景</summary>
             <div class="groupBody">
               <div class="component">
-                <div class="componentHead"><strong>渐变背景</strong><button aria-label="隐藏渐变背景" aria-pressed="false" class="eye" data-eye="backBg" type="button"></button></div><label>背面渐变上方颜色</label>
+                <div class="componentHead">
+                  <strong>背景</strong>
+                  <button aria-label="隐藏渐变背景" aria-pressed="false" class="eye" data-eye="backBg" type="button"></button>
+                </div>
+                <label>上方颜色</label>
                 <div class="row">
                   <input id="backTop" type="color" value="#000000"/>
                   <input id="backTopHex" type="text" value="#000000"/>
-                </div><label>背面渐变下方颜色</label>
+                </div>
+                <label>下方颜色</label>
                 <div class="row">
                   <input id="backBg" type="color" value="#315b70"/>
                   <input id="backBgHex" type="text" value="#315b70"/>
-                </div><button class="small" id="swapBackGradientColors">交换背面上下颜色</button>
+                </div><button class="small" id="swapBackGradientColors">交换上下颜色</button>
                 <div class="row">
                   <div><label>上方颜色结束位置</label>
                     <input id="backGradStart" max="100" min="0" type="range" value="50"/>
@@ -1496,26 +1616,40 @@ button {
                   <div><label>下方颜色开始位置</label>
                     <input id="backGradEnd" max="100" min="0" type="range" value="82"/>
                   </div>
-                </div><button class="small" id="resetBackGradient">重置背面渐变范围</button><label>不透明度 / %</label>
+                </div><button class="small" id="resetBackGradient">重置渐变范围</button>
+                <label>不透明度 / %</label>
                 <input id="backBgAlpha" max="100" min="0" step="1" type="range" value="100"/>
               </div>
               <div class="component">
-                <div class="componentHead"><strong>暗纹</strong><button aria-label="隐藏暗纹" aria-pressed="false" class="eye" data-eye="backTexture" type="button"></button></div>
+                <div class="componentHead">
+                  <strong>暗纹</strong>
+                  <button aria-label="隐藏暗纹" aria-pressed="false" class="eye" data-eye="backTexture" type="button"></button>
+                </div>
                 <div class="check">
-                  <input checked="" id="showBackTexture" type="checkbox"/><span>显示背面暗纹图层</span></div><label>上传自定义背面暗纹</label>
-                <input accept="image/*" id="backTextureUpload" type="file"/><button class="small" id="useDefaultBackTexture" type="button">使用默认暗纹</button>
-                <div class="hint disabledHint">使用默认暗纹时，仅可调整透明度；上传自定义暗纹后可调整大小和位置。</div><label>背面暗纹透明度</label>
-                <input id="backTextureOpacity" max="100" min="0" type="range" value="100"/><label>背面暗纹大小</label>
+                  <input checked="" id="showBackTexture" type="checkbox"/><span>显示暗纹</span>
+                </div>
+                <div class="row">
+                  <div>
+                    <label>上传自定义暗纹</label>
+                    <input accept="image/*" id="backTextureUpload" type="file"/>
+                  </div>
+                  <div>
+                    <button class="small" id="useDefaultBackTexture" type="button">使用默认暗纹</button>
+                  </div>
+                </div>
+                <label>透明度</label>
+                <input id="backTextureOpacity" max="100" min="0" type="range" value="100"/>
+                <label>缩放</label>
                 <input id="backTextureScale" max="240" min="20" type="range" value="100"/>
                 <div class="row">
-                  <div><label>背面暗纹 X 位置</label>
+                  <div><label>水平位置</label>
                     <input id="backTextureX" max="1129" min="-1129" type="range" value="0"/>
                   </div>
-                  <div><label>背面暗纹 Y 位置</label>
+                  <div><label>垂直位置</label>
                     <input id="backTextureY" max="1665" min="-1665" type="range" value="0"/>
                   </div>
                 </div>
-                <div class="row"><button class="small" id="centerBackTexture" type="button">背面暗纹居中</button></div>
+                <div class="row"><button class="small" id="centerBackTexture" type="button">居中</button></div>
               </div>
             </div>
           </details>
@@ -1525,23 +1659,23 @@ button {
           <div class="groupBody">
             <div class="actions"><button class="primary" id="exportCard">导出当前预览</button></div>
             <details class="whiteOptions">
-              <summary>白墨层透明组件</summary><label class="check">
-                <input id="white_frontBg" type="checkbox"/>正面渐变背景设为透明</label><label class="check">
-                <input id="white_mainBg" type="checkbox"/>主图区域背景设为透明</label><label class="check">
-                <input id="white_mainImage" type="checkbox"/>主图设为透明</label><label class="check">
-                <input id="white_frontTexture" type="checkbox"/>正面暗纹设为透明</label><label class="check">
-                <input id="white_frontName" type="checkbox"/>第一行文字设为透明</label><label class="check">
-                <input id="white_frontIP" type="checkbox"/>第二行文字设为透明</label><label class="check">
-                <input id="white_frontIcon" type="checkbox"/>可更改图标设为透明</label><label class="check">
-                <input id="white_fixedIcon" type="checkbox"/>固定图标设为透明</label><label class="check">
-                <input id="white_pattern" type="checkbox"/>顶部花纹设为透明</label><label class="check">
-                <input id="white_backBg" type="checkbox"/>背面渐变背景设为透明</label><label class="check">
-                <input id="white_backTexture" type="checkbox"/>背面暗纹设为透明</label><label class="check">
-                <input id="white_backTitle" type="checkbox"/>背面文字设为透明</label><label class="check">
-                <input id="white_backIconBlack" type="checkbox"/>背面图标内部设为透明</label><label class="check">
-                <input id="white_backIconGray" type="checkbox"/>背面图标外部设为透明</label><label class="check">
-                <input id="white_bottomBg" type="checkbox"/>底部色带设为透明</label><label class="check">
-                <input id="white_outline" type="checkbox"/>轮廓线设为透明</label></details><button class="primary" id="exportPolWhite">导出当前白墨层 PNG</button></div>
+              <summary>白墨层（勾选隐藏）</summary><label class="check">
+                <input id="white_frontBg" type="checkbox"/>正面背景</label><label class="check">
+                <input id="white_mainBg" type="checkbox"/>主图背景</label><label class="check">
+                <input id="white_mainImage" type="checkbox"/>主图</label><label class="check">
+                <input id="white_frontTexture" type="checkbox"/>正面暗纹</label><label class="check">
+                <input id="white_frontName" type="checkbox"/>第一行文字</label><label class="check">
+                <input id="white_frontIP" type="checkbox"/>第二行文字</label><label class="check">
+                <input id="white_frontIcon" type="checkbox"/>可更改图标</label><label class="check">
+                <input id="white_fixedIcon" type="checkbox"/>固定图标</label><label class="check">
+                <input id="white_pattern" type="checkbox"/>顶部花纹</label><label class="check">
+                <input id="white_backBg" type="checkbox"/>背面渐变背景</label><label class="check">
+                <input id="white_backTexture" type="checkbox"/>背面暗纹</label><label class="check">
+                <input id="white_backTitle" type="checkbox"/>背面文字</label><label class="check">
+                <input id="white_backIconBlack" type="checkbox"/>背面图标内部</label><label class="check">
+                <input id="white_backIconGray" type="checkbox"/>背面图标外部</label><label class="check">
+                <input id="white_bottomBg" type="checkbox"/>底部色带</label><label class="check">
+                <input id="white_outline" type="checkbox"/>轮廓线</label></details><button class="primary" id="exportPolWhite">导出当前白墨层 PNG</button></div>
         </details>
         <div hidden="True" id="legacyControls">
           <input id="hideGold" type="checkbox"/>
@@ -1553,27 +1687,11 @@ button {
           </div>
           <div id="frontTextureContent">
           </div>
-          <div id="frontGoldContent"><label>烫金颜色（预览用；烫金层导出为纯黑）</label>
-            <div class="row">
-            </div><label>角色名</label>
-            <div class="row">
-            </div><label>IP 名</label>
-            <div class="row">
-            </div><label>正面命途/图标</label><label>上传自定义命途图标</label></div>
           <div id="backBgContent">
           </div>
           <div id="backTextureContent">
           </div>
-          <div id="backGoldContent"><label>顶部标题</label>
-            <div class="row">
-            </div><label>背面命途/图标</label><label>上传自定义命途图标</label><label>背面命途大小</label>
-            <div class="row">
-              <div><label>命途 X 位置</label></div>
-              <div><label>命途 Y 位置</label></div>
-            </div>
-            <div class="row">
-            </div>
-          </div><button class="small collapseBtn" hidden="" id="toggleGeneral" type="button">收起</button>
+          <button class="small collapseBtn" hidden="" id="toggleGeneral" type="button">收起</button>
           <input id="backIconColor" type="hidden" value="#e7ae13"/>
         </div>
       </aside>
@@ -1585,8 +1703,11 @@ button {
     </div>
     <div class="modal" id="sizeModal">
       <div class="modalBox">
-        <h2>尺寸信息</h2><pre id="sizeInfo"></pre>
-        <div class="actions"><button class="primary" id="closeSize">关闭</button></div>
+        <h2>尺寸信息</h2>
+        <pre id="sizeInfo"></pre>
+        <div class="actions">
+          <button class="primary" id="closeSize">关闭</button>
+        </div>
       </div>
     </div>
     <script>
