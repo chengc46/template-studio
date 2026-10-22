@@ -11,9 +11,9 @@ const TEMPLATES = {
 };
 const frames = {},
   names = {
-    polaroid: '仿卡片拍立得',
-    card: '自定义透明卡片',
-    storage: '仿存储卡挂件'
+    polaroid: '崩铁拍立得',
+    card: 'Potepotte透卡',
+    storage: '仿存储卡'
   };
 
 function show(key) {
