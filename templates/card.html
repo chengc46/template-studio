@@ -1214,74 +1214,140 @@ button {
 }
 
 </style>
-    <header>
-      <div><small>YOUR PERSONAL PRINT STUDIO</small>
-        <h1>卡片工坊<span style="font-weight:300;font-size:16px;letter-spacing:0"> / Card Studio</span></h1>
-      </div><span class="badge">80 × 120 mm · 竖版</span></header>
     <main class="workspace">
       <aside class="controls">
         <details class="group" open="">
           <summary>主图</summary>
-          <div class="groupBody"><label>上传主图</label>
-            <input accept="image/*" id="mainUIFile" type="file"/><label>缩放 / %</label>
-            <input id="mainUIZoom" max="5000" min="0.1" step="0.1" type="range" value="100"/><label>水平偏移 / mm</label>
-            <input id="mainUIX" max="120" min="-120" step="0.1" type="range" value="0"/><label>垂直偏移 / mm</label>
+          <div class="groupBody">
+            <label>上传主图</label>
+            <input accept="image/*" id="mainUIFile" type="file"/>
+            <label>缩放</label>
+            <input id="mainUIZoom" max="5000" min="0.1" step="0.1" type="range" value="100"/>
+            <label>水平偏移 / mm</label>
+            <input id="mainUIX" max="120" min="-120" step="0.1" type="range" value="0"/>
+            <label>垂直偏移 / mm</label>
             <input id="mainUIY" max="120" min="-120" step="0.1" type="range" value="0"/>
-            <div class="actions"><button id="mainUIFitH">适应高度</button><button id="mainUIFitW">适应宽度</button><button id="mainUICenter">居中</button><button id="mainUIReset">重置</button><button id="mainUIRemove">移除</button></div>
+            <div class="actions">
+              <button id="mainUIFitH">适应高度</button>
+              <button id="mainUIFitW">适应宽度</button>
+              <button id="mainUICenter">居中</button>
+              <button id="mainUIReset">重置</button>
+              <button id="mainUIRemove">移除</button>
+            </div>
           </div>
         </details>
         <details class="group" open="">
           <summary>图标</summary>
           <div class="groupBody"><label>内置图标</label>
-            <select id="iconSelect"><option value="">请选择图标</option><option>存护</option><option>繁育</option><option>丰饶</option><option>欢愉</option><option>毁灭</option><option>记忆</option><option>均衡</option><option>开拓</option><option>神秘</option><option>贪饕</option><option>同谐</option><option>虚无</option><option>巡猎</option><option>秩序</option><option>智识</option></select><label for="iconBlack">内部颜色</label>
-            <input id="iconBlack" type="color" value="#ffffff"/><label>内部不透明度 / %</label>
-            <input id="iconBlackOpacity" max="100" min="0" step="1" type="range" value="100"/>
+            <select id="iconSelect">
+              <option value="">请选择图标</option>
+              <option>存护</option>
+              <option>繁育</option>
+              <option>丰饶</option>
+              <option>欢愉</option>
+              <option>毁灭</option>
+              <option>记忆</option>
+              <option>均衡</option>
+              <option>开拓</option>
+              <option>神秘</option>
+              <option>贪饕</option>
+              <option>同谐</option>
+              <option>虚无</option>
+              <option>巡猎</option>
+              <option>秩序</option>
+              <option>智识</option>
+            </select>
+            <div>
+              <label for="iconBlack">内部颜色</label>
+              <input id="iconBlack" type="color" value="#ffffff"/>
+            </div>
+            <div>
+              <input id="iconBlackOpacity" max="100" min="0" step="1" type="range" value="100"/>
+            </div>
             <div id="grayControl"><label>外部</label>
-              <input id="iconGray" type="color" value="#b3b3b3"/><label>外部不透明度 / %</label>
+              <input id="iconGray" type="color" value="#b3b3b3"/>
               <input id="iconGrayOpacity" max="100" min="0" step="1" type="number" value="100"/>
               <input aria-label="外部不透明度" id="iconGrayOpacityRange" max="100" min="0" type="range" value="100"/>
             </div><label>上传自定义图标</label>
-            <input accept="image/*" id="iconUIFile" type="file"/><label>缩放 / %</label>
-            <input id="iconUIZoom" max="5000" min="0.1" step="0.1" type="range" value="100"/><label>水平偏移 / mm</label>
-            <input id="iconUIX" max="120" min="-120" step="0.1" type="range" value="0"/><label>垂直偏移 / mm</label>
+            <input accept="image/*" id="iconUIFile" type="file"/><label>缩放</label>
+            <input id="iconUIZoom" max="5000" min="0.1" step="0.1" type="range" value="100"/>
+            <label>水平偏移</label>
+            <input id="iconUIX" max="120" min="-120" step="0.1" type="range" value="0"/>
+            <label>垂直偏移</label>
             <input id="iconUIY" max="120" min="-120" step="0.1" type="range" value="0"/>
-            <div class="actions"><button id="iconUIFitH">适应高度</button><button id="iconUIFitW">适应宽度</button><button id="iconUICenter">居中</button><button id="iconUIReset">重置</button><button id="iconUIRemove">移除</button></div>
+            <div class="actions">
+              <button id="iconUIFitH">适应高度</button>
+              <button id="iconUIFitW">适应宽度</button>
+              <button id="iconUICenter">居中</button>
+              <button id="iconUIReset">重置</button>
+              <button id="iconUIRemove">移除</button>
+            </div>
           </div>
         </details>
         <details class="group" open="">
           <summary>文字</summary>
           <div class="groupBody">
-            <div class="component"><strong>第一行文字</strong>
-              <input id="t1" placeholder="输入标题"/><label>字体</label>
-              <select id="f1"><option value='Georgia, "Times New Roman", serif'>粗体衬线 / 原模板</option><option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体 / 无衬线</option><option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体 / 衬线</option><option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option><option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option><option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option></select>
-              <div class="textStyles"><label>
-                  <input checked="" id="t1Bold" type="checkbox"/>加粗</label><label>
-                  <input id="t1Strike" type="checkbox"/>删除线</label><label>
-                  <input id="t1Underline" type="checkbox"/>下划线</label></div><label>字号 / pt</label>
-              <input id="s1" max="70" min="1" type="number" value="16"/><label>文字颜色</label>
-              <input id="tc1" type="color" value="#ffffff"/><label>不透明度 / %</label>
+            <div class="component">
+              <strong>文字一</strong>
+              <input id="t1" placeholder="输入文字"/>
+              <select id="f1">
+                <option value='Georgia, "Times New Roman", serif'>粗体衬线</option>
+                <option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体</option>
+                <option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体</option>
+                <option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option>
+                <option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option>
+                <option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option>
+              </select>
+              <div class="textStyles">
+                <label><input checked="" id="t1Bold" type="checkbox"/>加粗</label>
+                <label><input id="t1Strike" type="checkbox"/>删除线</label>
+                <label><input id="t1Underline" type="checkbox"/>下划线</label>
+              </div>
+              <label>字号</label>
+              <input id="s1" max="70" min="1" type="number" value="16"/>
+              <label>文字颜色</label>
+              <input id="tc1" type="color" value="#ffffff"/>
               <input id="t1Alpha" max="100" min="0" step="1" type="range" value="100"/>
             </div>
-            <div class="component"><strong>第二行文字</strong>
-              <input id="t2" placeholder="输入副标题"/><label>字体</label>
-              <select id="f2"><option value='Georgia, "Times New Roman", serif'>粗体衬线 / 原模板</option><option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体 / 无衬线</option><option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体 / 衬线</option><option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option><option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option><option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option></select>
-              <div class="textStyles"><label>
-                  <input checked="" id="t2Bold" type="checkbox"/>加粗</label><label>
-                  <input id="t2Strike" type="checkbox"/>删除线</label><label>
-                  <input id="t2Underline" type="checkbox"/>下划线</label></div><label>字号 / pt</label>
-              <input id="s2" max="70" min="1" type="number" value="6"/><label>文字颜色</label>
-              <input id="tc2" type="color" value="#ffffff"/><label>不透明度 / %</label>
+            <div class="component"><strong>文字二</strong>
+              <input id="t2" placeholder="输入文字"/>
+              <select id="f2">
+                <option value='Georgia, "Times New Roman", serif'>粗体衬线</option>
+                <option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体</option>
+                <option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体</option>
+                <option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option>
+                <option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option>
+                <option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option>
+              </select>
+              <div class="textStyles">
+                <label><input checked="" id="t2Bold" type="checkbox"/>加粗</label>
+                <label><input id="t2Strike" type="checkbox"/>删除线</label>
+                <label><input id="t2Underline" type="checkbox"/>下划线</label>
+              </div>
+              <input id="s2" max="70" min="1" type="number" value="6"/>
+              <label>文字颜色</label>
+              <input id="tc2" type="color" value="#ffffff"/>
               <input id="t2Alpha" max="100" min="0" step="1" type="range" value="100"/>
             </div>
             <div class="component"><strong>左下角文字</strong>
-              <textarea id="t3" placeholder="输入备注，换行后自动向上延伸" rows="3"></textarea><label>字体</label>
-              <select id="f3"><option value='Georgia, "Times New Roman", serif'>粗体衬线 / 原模板</option><option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体 / 无衬线</option><option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体 / 衬线</option><option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option><option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option><option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option></select>
-              <div class="textStyles"><label>
-                  <input checked="" id="t3Bold" type="checkbox"/>加粗</label><label>
-                  <input id="t3Strike" type="checkbox"/>删除线</label><label>
-                  <input id="t3Underline" type="checkbox"/>下划线</label></div><label>字号 / pt</label>
-              <input id="s3" max="70" min="1" type="number" value="9"/><label>文字颜色</label>
-              <input id="tc3" type="color" value="#ffffff"/><label>不透明度 / %</label>
+              <textarea id="t3" placeholder="输入文字" rows="3"></textarea>
+              <select id="f3">
+                <option value='Georgia, "Times New Roman", serif'>粗体衬线</option>
+                <option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>黑体</option>
+                <option selected="" value='"Noto Serif SC","Songti SC","SimSun",serif'>宋体</option>
+                <option value='"Arial Rounded MT Bold","Microsoft YaHei",sans-serif'>圆体</option>
+                <option value='"Kaiti SC","STKaiti","KaiTi",serif'>楷体</option>
+                <option value='ui-monospace,"SFMono-Regular",monospace'>等宽体</option>
+              </select>
+              <div class="textStyles">
+                <label><input checked="" id="t3Bold" type="checkbox"/>加粗</label>
+                <label><input id="t3Strike" type="checkbox"/>删除线</label>
+                <label><input id="t3Underline" type="checkbox"/>下划线</label>
+              </div>
+              <label>字号</label>
+              <input id="s3" max="70" min="1" type="number" value="9"/>
+              <label>文字颜色</label>
+              <input id="tc3" type="color" value="#ffffff"/>
               <input id="t3Alpha" max="100" min="0" step="1" type="range" value="100"/>
             </div>
             <input id="tc" type="hidden" value="#ffffff"/>
@@ -1291,13 +1357,16 @@ button {
           <summary>背景</summary>
           <div class="groupBody">
             <div class="row">
-              <div><label>左下颜色</label>
+              <div>
+                <label>左下颜色</label>
                 <input id="c1" type="color" value="#cddfd0"/>
               </div>
-              <div><label>右上颜色</label>
+              <div>
+                <label>右上颜色</label>
                 <input id="c2" type="color" value="#f2e6d0"/>
               </div>
-            </div><label>渐变开始位置 <span id="startLabel">0%</span></label>
+            </div>
+            <label>渐变开始位置 <span id="startLabel">0%</span></label>
             <input id="start" max="99" min="0" type="range" value="0"/><label class="check">
               <input checked="" id="bg" type="checkbox"/>启用背景</label></div>
         </details>
@@ -1306,14 +1375,14 @@ button {
           <div class="groupBody"><label>精度</label>
             <select id="dpi"><option value="300">300 DPI · 印刷</option><option value="600">600 DPI · 高精度</option><option value="150">150 DPI · 预览</option></select><button class="primary" id="export" style="width:100%;margin-top:12px">↓ 导出卡片 PNG</button>
             <details>
-              <summary>白墨层透明组件</summary><label>
-                <input id="omitBackground" type="checkbox"/> 背景设为透明</label><label>
-                <input id="omitMain" type="checkbox"/> 主图设为透明</label><label>
-                <input id="omitText1" type="checkbox"/> 第一行文字设为透明</label><label>
-                <input id="omitText2" type="checkbox"/> 第二行文字设为透明</label><label>
-                <input id="omitText3" type="checkbox"/> 左下角文字设为透明</label><label>
-                <input id="omitIconGray" type="checkbox"/> 图标外部设为透明</label><label>
-                <input id="omitIconWhite" type="checkbox"/> 图标内部（含自定义图标）设为透明</label></details><button id="exportWhite" style="width:100%;margin-top:12px">↓ 导出白墨层 PNG</button>
+              <summary>白墨层（勾选隐藏）</summary><label>
+                <input id="omitBackground" type="checkbox"/> 背景</label><label>
+                <input id="omitMain" type="checkbox"/> 主图</label><label>
+                <input id="omitText1" type="checkbox"/> 第一行文字</label><label>
+                <input id="omitText2" type="checkbox"/> 第二行文字</label><label>
+                <input id="omitText3" type="checkbox"/> 左下角文字</label><label>
+                <input id="omitIconGray" type="checkbox"/> 图标外部</label><label>
+                <input id="omitIconWhite" type="checkbox"/> 图标内部</label></details><button id="exportWhite" style="width:100%;margin-top:12px">↓ 导出白墨层 PNG</button>
             <div class="actions"><button id="save">保存项目</button><button id="load">打开项目</button></div>
             <input accept=".json" hidden="" id="project" type="file"/>
           </div>
