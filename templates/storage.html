@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>存储卡亚克力挂件模板工具</title>
-
   <style id="template-styles">
 
 /*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
@@ -1937,6 +1936,23 @@ label[hidden],
     </div>
     <script>
 const TEMPLATE_KEY = "storage";
+// White-ink threshold uses alpha only; RGB/lightness must not affect coverage.
+function whiteInkCutoff(percent = 99) {
+  const value = Number(percent);
+  const bounded = Number.isFinite(value) ? Math.min(100, Math.max(1, value)) : 99;
+  return Math.ceil(255 * bounded / 100);
+}
+
+function makeWhiteInkPixels(data, percent = 99) {
+  const cutoff = whiteInkCutoff(percent);
+  for (let i = 0; i < data.length; i += 4) {
+    const alpha = data[i + 3];
+    data[i] = data[i + 1] = data[i + 2] = 255;
+    data[i + 3] = alpha >= cutoff ? 255 : 0;
+  }
+}
+
+
 const richTextState = {};
 function richEntry(key, text) {
   let entry = richTextState[key];
@@ -12348,10 +12364,7 @@ const page = (() => {
     });
     if (white) {
       let data = d.getImageData(0, 0, width, height);
-      for (let j = 0; j < data.data.length; j += 4) {
-        data.data[j] = data.data[j + 1] = data.data[j + 2] = 255;
-        data.data[j + 3] = data.data[j + 3] === 255 ? 255 : 0
-      }
+      makeWhiteInkPixels(data.data, n.whiteInkThreshold || 99);
       d.putImageData(data, 0, 0)
     }
   }
@@ -12377,6 +12390,7 @@ const page = (() => {
     let [e, t] = (0, r.useState)({
       side: `front`,
       whiteHidden: {},
+      whiteInkThreshold: 99,
       bg: `#f4f1ea`,
       contact: `#c8a451`,
       frontText: `YOUR TEXT`,
@@ -12790,6 +12804,17 @@ const page = (() => {
               className: `storageWhiteOptions`,
               children: [(0, i.jsx)(`summary`, {
                 children: `白墨层透明组件`
+              }), (0, i.jsxs)(`label`, {
+                children: [`白墨不透明度阈值 / %`, (0, i.jsx)(`input`, {
+                  id: `whiteInkThreshold`,
+                  type: `number`,
+                  min: 1,
+                  max: 100,
+                  step: 0.1,
+                  value: e.whiteInkThreshold ?? 99,
+                  title: `默认 99%，兼容接近不透明的图片像素；100% 为严格完全不透明。仅影响白墨层。`,
+                  onChange: n => u(`whiteInkThreshold`, Number(n.target.value) || 99)
+                })]
               }), (0, i.jsxs)(`label`, {
                 className: `check`,
                 children: [(0, i.jsx)(`input`, {

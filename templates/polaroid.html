@@ -2029,7 +2029,11 @@ label[hidden],
           <div class="groupBody">
             <div class="actions"><button class="primary" id="exportCard">导出当前预览</button></div>
             <details class="whiteOptions">
-              <summary>白墨层（勾选隐藏）</summary><label class="check">
+              <summary>白墨层（勾选隐藏）</summary>
+              <label for="whiteInkThreshold">白墨不透明度阈值 / %</label>
+              <input id="whiteInkThreshold" type="number" min="1" max="100" step="0.1" value="99"
+                title="默认 99%，兼容接近不透明的图片像素；100% 为严格完全不透明。仅影响白墨层。"/>
+              <label class="check">
                 <input id="white_frontBg" type="checkbox"/>正面背景</label><label class="check">
                 <input id="white_mainBg" type="checkbox"/>主图背景</label><label class="check">
                 <input id="white_mainImage" type="checkbox"/>主图</label><label class="check">
@@ -2065,6 +2069,23 @@ label[hidden],
     </div>
     <script>
 const TEMPLATE_KEY = "polaroid";
+// White-ink threshold uses alpha only; RGB/lightness must not affect coverage.
+function whiteInkCutoff(percent = 99) {
+  const value = Number(percent);
+  const bounded = Number.isFinite(value) ? Math.min(100, Math.max(1, value)) : 99;
+  return Math.ceil(255 * bounded / 100);
+}
+
+function makeWhiteInkPixels(data, percent = 99) {
+  const cutoff = whiteInkCutoff(percent);
+  for (let i = 0; i < data.length; i += 4) {
+    const alpha = data[i + 3];
+    data[i] = data[i + 1] = data[i + 2] = 255;
+    data[i + 3] = alpha >= cutoff ? 255 : 0;
+  }
+}
+
+
 const richTextState = {};
 function richEntry(key, text) {
   let entry = richTextState[key];
@@ -3026,10 +3047,7 @@ $('exportPolWhite').onclick = async () => {
     whiteMode = false;
   }
   let d = c.getImageData(0, 0, W, H);
-  for (let i = 0; i < d.data.length; i += 4) {
-    d.data[i] = d.data[i + 1] = d.data[i + 2] = 255;
-    d.data[i + 3] = d.data[i + 3] === 255 ? 255 : 0;
-  }
+  makeWhiteInkPixels(d.data, $('whiteInkThreshold')?.value || 99);
   c.putImageData(d, 0, 0);
   await saveCanvas(out, 'polaroid-' + side + '-white-ink.png');
 };

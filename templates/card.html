@@ -1729,7 +1729,11 @@ label[hidden],
           <div class="groupBody"><label>精度</label>
             <select id="dpi"><option value="300">300 DPI · 印刷</option><option value="600">600 DPI · 高精度</option><option value="150">150 DPI · 预览</option></select><button class="primary" id="export" style="width:100%;margin-top:12px">↓ 导出卡片 PNG</button>
             <details>
-              <summary>白墨层（勾选隐藏）</summary><label>
+              <summary>白墨层（勾选隐藏）</summary>
+              <label for="whiteInkThreshold">白墨不透明度阈值 / %</label>
+              <input id="whiteInkThreshold" type="number" min="1" max="100" step="0.1" value="99"
+                title="默认 99%，兼容接近不透明的图片像素；100% 为严格完全不透明。仅影响白墨层。"/>
+              <label>
                 <input id="omitBackground" type="checkbox"/> 背景</label><label>
                 <input id="omitMain" type="checkbox"/> 主图</label><label>
                 <input id="omitText1" type="checkbox"/> 第一行文字</label><label>
@@ -2162,6 +2166,22 @@ function download(blob, name) {
   a.click();
   setTimeout(() => URL.revokeObjectURL(u), 5000);
 }
+// White-ink threshold uses alpha only; RGB/lightness must not affect coverage.
+function whiteInkCutoff(percent = 99) {
+  const value = Number(percent);
+  const bounded = Number.isFinite(value) ? Math.min(100, Math.max(1, value)) : 99;
+  return Math.ceil(255 * bounded / 100);
+}
+
+function makeWhiteInkPixels(data, percent = 99) {
+  const cutoff = whiteInkCutoff(percent);
+  for (let i = 0; i < data.length; i += 4) {
+    const alpha = data[i + 3];
+    data[i] = data[i + 1] = data[i + 2] = 255;
+    data[i + 3] = alpha >= cutoff ? 255 : 0;
+  }
+}
+
 async function output(white = false) {
   await document.fonts.ready;
   let dpi = +$('dpi').value, c = document.createElement('canvas');
@@ -2173,10 +2193,7 @@ async function output(white = false) {
   render(cx, c.width, c.height, true, false, white);
   if (white) {
     let d = cx.getImageData(0, 0, c.width, c.height);
-    for (let i = 0; i < d.data.length; i += 4) {
-      d.data[i] = d.data[i + 1] = d.data[i + 2] = 255;
-      d.data[i + 3] = d.data[i + 3] === 255 ? 255 : 0;
-    }
+    makeWhiteInkPixels(d.data, $('whiteInkThreshold')?.value || 99);
     cx.putImageData(d, 0, 0);
   }
   c.toBlob(b => {
